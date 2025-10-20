@@ -8,26 +8,33 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          "اسكتشف العروض",
-          style: AppStyles.textStyle16Medium.copyWith(color: Colors.black),
-        ),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'الكل',
-              style: AppStyles.textStyle16Bold.copyWith(
-                color: AppColors.mutedColor,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "اسكتشف العروض",
+            style: AppStyles.textStyle16Medium.copyWith(color: Colors.black),
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'الكل',
+                style: AppStyles.textStyle16Bold.copyWith(
+                  color: AppColors.mutedColor,
+                ),
               ),
-            ),
-            Icon(Icons.arrow_forward, color: AppColors.mutedColor, size: 20.sp),
-          ],
-        ),
-      ],
+              Icon(
+                Icons.arrow_forward,
+                color: AppColors.mutedColor,
+                size: 20.sp,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
