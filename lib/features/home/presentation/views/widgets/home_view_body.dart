@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/home_header.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/categories_list_view.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/sub_categories_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -13,9 +15,11 @@ class HomeViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 25.h),
           const HomeHeader(),
-          SizedBox(height: 12.h),
+          Gap(12.h),
           const CategoriesListView(),
-          SizedBox(height: 33.h),
+          Gap(33.h),
+          const SubCategoriesListView(),
+          Gap(33.h),
         ],
       ),
     );
