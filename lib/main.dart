@@ -16,8 +16,8 @@ class OtexApp extends StatelessWidget {
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: AppColors.backColor,
-        textTheme: GoogleFonts.tajawalTextTheme()
+        scaffoldBackgroundColor: AppColors.back,
+        textTheme: GoogleFonts.tajawalTextTheme(),
       ),
     );
   }
