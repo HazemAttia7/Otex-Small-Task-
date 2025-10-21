@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:otex_app/core/icons/otex_icons.dart';
+import 'package:otex_app/core/utils/app_colors.dart';
+import 'package:otex_app/core/utils/app_styles.dart';
+import 'package:otex_app/core/utils/constants.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/home_header.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/categories_list_view.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/news_banner.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/sub_categories_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -13,13 +18,14 @@ class HomeViewBody extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          SizedBox(height: 25.h),
+          Gap(25.h),
           const HomeHeader(),
           Gap(12.h),
           const CategoriesListView(),
           Gap(33.h),
           const SubCategoriesListView(),
           Gap(33.h),
+          const NewsBanner(),
         ],
       ),
     );

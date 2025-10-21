@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:otex_app/core/utils/constants.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/categories_list_view_item.dart';
 
 class CategoriesListView extends StatefulWidget {
@@ -14,7 +15,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 16.w),
+      padding: EdgeInsets.only(right: kPagePadding),
       child: SizedBox(
         height: 41.h,
         child: ListView.builder(
