@@ -17,7 +17,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
     return Padding(
       padding: EdgeInsets.only(right: kPagePadding),
       child: SizedBox(
-        height: 41.h,
+        height: 41.sp,
         child: ListView.builder(
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,

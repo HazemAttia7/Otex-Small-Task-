@@ -18,7 +18,11 @@ class ProductsSliverGridItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(4.r),
       ),
       child: Column(
-        children: [const ProductImage(), Gap(4.h), const ProductDetails()],
+        children: [
+          const ProductImage(),
+          Gap(4.h),
+          const Expanded(child: ProductDetails()),
+        ],
       ),
     );
   }

@@ -31,7 +31,7 @@ class ProductDetails extends StatelessWidget {
               color: AppColors.mutedColor,
             ),
           ),
-          Gap(30.h),
+          const Spacer(),
           const ProductActionsRow(),
         ],
       ),

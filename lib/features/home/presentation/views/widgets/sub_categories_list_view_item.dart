@@ -19,7 +19,9 @@ class SubCategoriesListViewItem extends StatelessWidget {
       children: [
         CustomImage(image: image),
         Gap(8.h),
-        Text(text, style: AppStyles.textStyle12.copyWith(height: 1)),
+        Flexible(
+          child: Text(text, style: AppStyles.textStyle12.copyWith(height: 1)),
+        ),
       ],
     );
   }
