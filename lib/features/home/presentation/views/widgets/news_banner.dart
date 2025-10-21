@@ -5,6 +5,7 @@ import 'package:otex_app/core/icons/otex_icons.dart';
 import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
 import 'package:otex_app/core/utils/constants.dart';
+import 'package:otex_app/core/widgets/custom_icon_text_row.dart';
 
 class NewsBanner extends StatelessWidget {
   const NewsBanner({super.key});
@@ -24,11 +25,12 @@ class NewsBanner extends StatelessWidget {
         child: Row(
           children: [
             Gap(4.sp),
-            Icon(OtexIcons.check, color: const Color(0xff3A813F), size: 11.sp),
-            Gap(8.sp),
-            Text(
-              "شحن مجاني",
-              style: AppStyles.textStyle12.copyWith(
+            CustomIconTextRow(
+              icon: OtexIcons.check,
+              iconColor: const Color(0xff3A813F),
+              iconSize: 14.sp,
+              text: 'شحن مجاني',
+              textStyle: AppStyles.textStyle12.copyWith(
                 fontWeight: FontWeight.normal,
                 color: const Color(0xff3A813F),
               ),

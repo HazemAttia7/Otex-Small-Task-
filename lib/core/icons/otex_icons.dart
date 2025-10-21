@@ -21,4 +21,5 @@ class OtexIcons {
   static const IconData rocket = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData hour = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData account_circle = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData percent = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
