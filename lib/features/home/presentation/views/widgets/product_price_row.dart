@@ -19,18 +19,26 @@ class ProductPriceRow extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: "${product.getPriceAfterDiscount()}جم/",
+                  text: "${product.getPriceAfterDiscount()}جم",
                   style: AppStyles.textStyle14.copyWith(
                     color: AppColors.secondaryDark,
                   ),
                 ),
-                TextSpan(
-                  text: product.price.toString(),
-                  style: AppStyles.textStyle14.copyWith(
-                    color: Colors.grey,
-                    decoration: TextDecoration.lineThrough,
+                if (product.discountPercent != 0)
+                  TextSpan(
+                    text: "/",
+                    style: AppStyles.textStyle14.copyWith(
+                      color: AppColors.secondaryDark,
+                    ),
                   ),
-                ),
+                if (product.discountPercent != 0)
+                  TextSpan(
+                    text: product.price.toString(),
+                    style: AppStyles.textStyle14.copyWith(
+                      color: Colors.grey,
+                      decoration: TextDecoration.lineThrough,
+                    ),
+                  ),
               ],
             ),
           ),
