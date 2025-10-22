@@ -36,6 +36,6 @@ class Product {
   };
 
   double getPriceAfterDiscount() {
-    return price - (price * discountPercent);
+    return price - (price * discountPercent / 100);
   }
 }

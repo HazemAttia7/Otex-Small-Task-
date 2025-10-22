@@ -2,8 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomImage extends StatelessWidget {
-  const CustomImage({super.key, required this.image});
+class SubCategoryImage extends StatelessWidget {
+  final bool isSelected;
+  const SubCategoryImage({
+    super.key,
+    required this.image,
+    required this.isSelected,
+  });
 
   final String image;
 
@@ -15,6 +20,9 @@ class CustomImage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4.r),
         color: Colors.black.withValues(alpha: .1),
+        border: isSelected
+            ? Border.all(color: Colors.black, width: 1.sp)
+            : null,
       ),
       child: Center(
         child: CachedNetworkImage(

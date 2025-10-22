@@ -381,4 +381,5 @@ class DatabaseSeeder {
       "subcategory_id": 5,
     });
   }
+  // TODO : Seed Accessories products
 }

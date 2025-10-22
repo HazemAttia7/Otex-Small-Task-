@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:otex_app/core/database/models/product_model.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/product_details.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/product_image.dart';
 
 class ProductsSliverGridItem extends StatelessWidget {
-  const ProductsSliverGridItem({super.key});
+  final Product product;
+  const ProductsSliverGridItem({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +21,9 @@ class ProductsSliverGridItem extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const ProductImage(),
+          Expanded(child: ProductImage(imageUrl: product.imageUrl ?? "")),
           Gap(4.h),
-          const Expanded(child: ProductDetails()),
+          Expanded(child: ProductDetails(product: product)),
         ],
       ),
     );

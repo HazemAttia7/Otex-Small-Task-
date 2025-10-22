@@ -9,7 +9,7 @@ class ProductsCubit extends Cubit<ProductsState> {
   final HomeRepo homeRepo;
   ProductsCubit(this.homeRepo) : super(ProductsInitial());
 
-  Future<void> fetchAllSubcategories() async {
+  Future<void> fetchAllProducts() async {
     emit(ProductsLoading());
     var result = await homeRepo.getAllProducts();
     result.fold(
@@ -18,16 +18,18 @@ class ProductsCubit extends Cubit<ProductsState> {
     );
   }
 
-  Future<void> fetchProductsByCategory(int categoryId) async {
+  Future<void> fetchProductsByCategory({required int categoryId}) async {
     emit(ProductsLoading());
-    final result = await homeRepo.getProductsByCategory(categoryId: categoryId);
+    final result = categoryId == 0
+        ? await homeRepo.getAllProducts()
+        : await homeRepo.getProductsByCategory(categoryId: categoryId);
     result.fold(
       (failure) => emit(ProductsFailure(errMessage: failure.errMessage)),
       (products) => emit(ProductsSuccess(products: products)),
     );
   }
 
-  Future<void> fetchProductsBySubCategory(int subCategoryId) async {
+  Future<void> fetchProductsBySubCategory({required int subCategoryId}) async {
     emit(ProductsLoading());
     final result = await homeRepo.getProductsBySubCategory(
       subCategoryId: subCategoryId,

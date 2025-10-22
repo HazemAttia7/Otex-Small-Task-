@@ -56,7 +56,9 @@ class HomeRepoImpl implements HomeRepo {
     required int categoryId,
   }) async {
     try {
-      return right(await _productDao.getProductsByCategory(categoryId: categoryId));
+      return right(
+        await _productDao.getProductsByCategory(categoryId: categoryId),
+      );
     } on Exception catch (e) {
       if (e is DatabaseException) {
         return left(DatabaseFailure.fromDatabaseException(e));
@@ -73,6 +75,24 @@ class HomeRepoImpl implements HomeRepo {
       return right(
         await _productDao.getProductsBySubCategory(
           subCategoryId: subCategoryId,
+        ),
+      );
+    } on Exception catch (e) {
+      if (e is DatabaseException) {
+        return left(DatabaseFailure.fromDatabaseException(e));
+      }
+      return left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<SubCategory>>> getSubCategoriesByCategory({
+    required int categoryId,
+  }) async {
+    try {
+      return right(
+        await _subCategoryDao.getSubCategoriesByCategory(
+          categoryId: categoryId,
         ),
       );
     } on Exception catch (e) {

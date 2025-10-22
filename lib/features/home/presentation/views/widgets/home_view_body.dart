@@ -35,6 +35,7 @@ class HomeViewBody extends StatelessWidget {
             padding: EdgeInsetsGeometry.symmetric(horizontal: kPagePadding),
             sliver: const ProductsSliverGrid(),
           ),
+          SliverToBoxAdapter(child: SizedBox(height: 30.h)),
         ],
       ),
     );

@@ -5,7 +5,8 @@ import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
 
 class ProductTitleRow extends StatelessWidget {
-  const ProductTitleRow({super.key});
+  final String title;
+  const ProductTitleRow({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ProductTitleRow extends StatelessWidget {
       children: [
         Flexible(
           child: Text(
-            "جاكيت من الصوف مناسب",
+            title,
             style: AppStyles.textStyle14,
             overflow: TextOverflow.ellipsis,
           ),
