@@ -6,6 +6,7 @@ import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_router.dart';
 
 void main() {
+  
   runApp(const OtexApp());
 }
 

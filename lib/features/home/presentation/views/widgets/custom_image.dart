@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,12 @@ class CustomImage extends StatelessWidget {
         color: Colors.black.withValues(alpha: .1),
       ),
       child: Center(
-        child: Image.asset(image, height: 45.sp, fit: BoxFit.contain),
+        child: CachedNetworkImage(
+          imageUrl: image,
+          height: 45.sp,
+          fit: BoxFit.contain,
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        ),
       ),
     );
   }
