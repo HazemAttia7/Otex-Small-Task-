@@ -1,22 +1,27 @@
-class SubCategoryModel {
+import 'package:otex_app/core/database/models/category_model.dart';
+
+class SubCategory {
   final int? id;
   final String? imageUrl;
   final String name;
-  final int categoryId;
+  final Category category;
 
-  SubCategoryModel({
+  SubCategory({
     required this.id,
     required this.imageUrl,
     required this.name,
-    required this.categoryId,
+    required this.category,
   });
 
-  factory SubCategoryModel.fromMap(Map<String, dynamic> map) {
-    return SubCategoryModel(
+  factory SubCategory.fromMap(Map<String, dynamic> map) {
+    return SubCategory(
       id: map['id'] as int?,
       imageUrl: map['image'] as String?,
       name: map['name'] as String,
-      categoryId: map['category_id'] as int,
+      category: Category(
+        id: map['c_id'] as int?,
+        name: map['c_name'] as String,
+      ),
     );
   }
 
@@ -24,6 +29,6 @@ class SubCategoryModel {
     'id': id,
     'image': imageUrl,
     'name': name,
-    'category_id': categoryId,
+    'category_id': category.id,
   };
 }

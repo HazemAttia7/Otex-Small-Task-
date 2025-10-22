@@ -1,11 +1,11 @@
-class ProductModel {
+class Product {
   final int? id;
   final String? imageUrl;
   final String name;
   final double price, discountPercent;
   final int soldCount, subcategoryId;
 
-  ProductModel({
+  Product({
     required this.id,
     required this.imageUrl,
     required this.name,
@@ -15,7 +15,7 @@ class ProductModel {
     required this.subcategoryId,
   });
 
-  factory ProductModel.fromMap(Map<String, dynamic> map) => ProductModel(
+  factory Product.fromMap(Map<String, dynamic> map) => Product(
     id: map["id"] as int?,
     imageUrl: map["image"] as String?,
     name: map["name"] as String,
