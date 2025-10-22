@@ -23,14 +23,14 @@ class DatabaseHelper {
   Future<void> _createDB(Database db, int version) async {
     await db.execute("""
     CREATE TABLE Categories (
-      Id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
     );
 """);
 
  await db.execute("""
     CREATE TABLE Sub_Categories (
-      Id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       image TEXT NULL, 
       name TEXT NOT NULL,
       category_id INTERGER NOT NULL,
@@ -40,12 +40,12 @@ class DatabaseHelper {
 
  await db.execute("""
     CREATE TABLE Products (
-      Id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       image TEXT NULL, 
       name TEXT NOT NULL,
       price REAL NOT NULL,
-      discount_percent REAL,
-      sold_count INTEGER DEFAULT 0,
+      discount_percent REAL DEFAULT 0 NOT NULL,
+      sold_count INTEGER DEFAULT 0 NOT NULL,
       subcategory_id INTEGER NOT NULL,
       FOREIGN KEY (subcategory_id) REFERENCES subcategories (id) ON DELETE CASCADE
     );

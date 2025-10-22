@@ -99,8 +99,7 @@ class DatabaseSeeder {
           "https://s3-alpha-sig.figma.com/img/3939/6c0f/969c78e31feab7577c6a606ad53a21d3?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=AII6~e1ZwCojoxfXIwg8tweZk8R5NC3T-mFa4fZK-auTrI2tPUtT1zIbLIq82NhY008GfAYL~41e0d1MvxY~sKOuknQXakkPqviXN9P36wGMaDeymCNze4xoeW1zw42B-uCn2hc4MXiim~jLlSKT-dnEBxi1G6g2nRKHAnMuaImo1Mq2loTm306AJXVTQ-731qUSECI2IRQUOYO7F0zQSFrqsAy-gZ9OnKB0r-ELY0alLWPMuiQ8MLovJ~hIBfYte2f6DtPW2WcNuGRDBTt0svKCqfZ5gMHRXjU6JylzSncCcl6dxiWULeUlJf5QPxK3l3K4Ls3J74zpdPG8~Tq66w__",
       "name": "قميص قطن كلاسيكي",
       "price": 28000000,
-      "discount_percent": 30,
-      "sold_count": 2000,
+      "discount_percent": 0,
       "subcategory_id": 1,
     });
     await db.insert("Products", {
@@ -129,7 +128,6 @@ class DatabaseSeeder {
       "name": "ساعة كلاسيك ستانلس ستيل",
       "price": 3200,
       "discount_percent": 20,
-      "sold_count": 1200,
       "subcategory_id": 2,
     });
     await db.insert("Products", {
@@ -138,14 +136,13 @@ class DatabaseSeeder {
       "name": "ساعة فاخرة جلدية",
       "price": 12500,
       "discount_percent": 12,
-      "sold_count": 300,
       "subcategory_id": 2,
     });
     await db.insert("Products", {
       "image": "https://i.postimg.cc/WpBTDJCt/image.png",
       "name": "ساعة رياضية مقاومة للماء",
       "price": 2600,
-      "discount_percent": 18,
+      "discount_percent": 0,
       "sold_count": 900,
       "subcategory_id": 2,
     });
