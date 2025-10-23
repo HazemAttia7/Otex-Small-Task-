@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:otex_app/core/database/models/product_model.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/product_details.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/product_image.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/product_details.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/product_image.dart';
 
 class ProductsSliverGridItem extends StatelessWidget {
   final Product product;

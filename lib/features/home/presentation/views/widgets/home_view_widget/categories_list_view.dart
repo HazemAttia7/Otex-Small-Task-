@@ -7,7 +7,7 @@ import 'package:otex_app/core/widgets/custom_loading_indicator.dart';
 import 'package:otex_app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/products_cubit/products_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/sub_categories_cubit/sub_categories_cubit.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/categories_list_view_item.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/categories_list_view_item.dart';
 
 class CategoriesListView extends StatefulWidget {
   const CategoriesListView({super.key});

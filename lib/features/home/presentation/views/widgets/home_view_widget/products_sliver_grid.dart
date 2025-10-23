@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:otex_app/core/widgets/custom_error_widget.dart';
 import 'package:otex_app/core/widgets/custom_loading_indicator.dart';
 import 'package:otex_app/features/home/presentation/manager/products_cubit/products_cubit.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/products_sliver_grid_item.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/products_sliver_grid_item.dart';
 
 class ProductsSliverGrid extends StatelessWidget {
   const ProductsSliverGrid({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:otex_app/core/database/models/sub_category_model.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/sub_category_image.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/sub_category_image.dart';
 
 class SubCategoriesListViewItem extends StatelessWidget {
   final SubCategory subCategory;

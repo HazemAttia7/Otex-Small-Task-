@@ -6,7 +6,7 @@ import 'package:otex_app/core/widgets/custom_error_widget.dart';
 import 'package:otex_app/core/widgets/custom_loading_indicator.dart';
 import 'package:otex_app/features/home/presentation/manager/products_cubit/products_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/sub_categories_cubit/sub_categories_cubit.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/sub_categories_list_view_item.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/sub_categories_list_view_item.dart';
 
 class SubCategoriesListView extends StatefulWidget {
   const SubCategoriesListView({super.key});

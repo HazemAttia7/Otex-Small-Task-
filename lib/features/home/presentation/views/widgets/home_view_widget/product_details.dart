@@ -6,9 +6,9 @@ import 'package:otex_app/core/icons/otex_icons.dart';
 import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
 import 'package:otex_app/core/widgets/custom_icon_text_row.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/product_actions_row.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/product_price_row.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/product_title_row.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/product_actions_row.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/product_price_row.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/product_title_row.dart';
 
 class ProductDetails extends StatelessWidget {
   final Product product;

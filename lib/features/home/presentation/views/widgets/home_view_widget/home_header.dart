@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
 import 'package:otex_app/core/utils/constants.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/home_icon_text_row.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/home_icon_text_row.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:otex_app/core/utils/constants.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/home_header.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/categories_list_view.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/news_banner.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/products_sliver_grid.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/sub_categories_list_view.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/home_header.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/categories_list_view.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/news_banner.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/products_sliver_grid.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/sub_categories_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
