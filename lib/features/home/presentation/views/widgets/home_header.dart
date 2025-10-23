@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
 import 'package:otex_app/core/utils/constants.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_icon_text_row.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -18,22 +17,7 @@ class HomeHeader extends StatelessWidget {
             "اسكتشف العروض",
             style: AppStyles.textStyle16Medium.copyWith(color: Colors.black),
           ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'الكل',
-                style: AppStyles.textStyle16Bold.copyWith(
-                  color: AppColors.mutedColor,
-                ),
-              ),
-              Icon(
-                Icons.arrow_forward,
-                color: AppColors.mutedColor,
-                size: 20.sp,
-              ),
-            ],
-          ),
+          const HomeIconTextRow(),
         ],
       ),
     );
