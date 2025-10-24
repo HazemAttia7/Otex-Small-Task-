@@ -7,7 +7,7 @@ import 'package:otex_app/core/widgets/custom_loading_indicator.dart';
 import 'package:otex_app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/products_cubit/products_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/sub_categories_cubit/sub_categories_cubit.dart';
-import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/categories_list_view_item.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/home_view_widget/selectable_item.dart';
 
 class CategoriesListView extends StatefulWidget {
   const CategoriesListView({super.key});
@@ -24,7 +24,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
       builder: (context, state) {
         if (state is CategoriesSuccess) {
           return Padding(
-            padding: EdgeInsets.only(right: kPagePadding),
+            padding: EdgeInsets.only(right: kPageHorizontalPadding),
             child: SizedBox(
               height: 41.sp,
               child: ListView.builder(
@@ -33,8 +33,8 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                 itemCount: state.categories.length,
                 itemBuilder: (context, index) => Padding(
                   padding: EdgeInsets.only(left: 8.w),
-                  child: CategoriesListViewItem(
-                    category: state.categories[index],
+                  child: SelectableItem(
+                    itemName: state.categories[index].name,
                     isSelected: selectedIndex == index,
                     onTap: () {
                       setState(() {

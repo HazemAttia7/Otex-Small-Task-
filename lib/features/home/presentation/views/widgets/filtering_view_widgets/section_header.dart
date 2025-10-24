@@ -9,7 +9,7 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kPagePadding),
+      padding: EdgeInsets.symmetric(horizontal: kPageHorizontalPadding),
       child: Text(sectionTitle, style: AppStyles.textStyle16Medium),
     );
   }

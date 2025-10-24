@@ -13,7 +13,7 @@ class NewsBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kPagePadding),
+      padding: EdgeInsets.symmetric(horizontal: kPageHorizontalPadding),
       child: Container(
         padding: EdgeInsetsGeometry.symmetric(
           vertical: 10.sp,

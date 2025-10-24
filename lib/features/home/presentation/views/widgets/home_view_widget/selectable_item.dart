@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:otex_app/core/database/models/category_model.dart';
 import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
 
-class CategoriesListViewItem extends StatelessWidget {
-  final Category category;
+class SelectableItem extends StatelessWidget {
+  final String itemName;
   final bool isSelected;
   final VoidCallback onTap;
-  const CategoriesListViewItem({
+  const SelectableItem({
     super.key,
     this.isSelected = false,
-    required this.category, required this.onTap,
+    required this.itemName,
+    required this.onTap,
   });
 
   @override
@@ -30,10 +30,12 @@ class CategoriesListViewItem extends StatelessWidget {
               : Colors.transparent,
           borderRadius: BorderRadius.circular(4.r),
         ),
-        child: Text(
-          category.name,
-          style: AppStyles.textStyle14.copyWith(
-            color: isSelected ? AppColors.secondary : AppColors.mutedColor,
+        child: Center(
+          child: Text(
+            itemName,
+            style: AppStyles.textStyle14.copyWith(
+              color: isSelected ? AppColors.secondary : AppColors.mutedColor,
+            ),
           ),
         ),
       ),

@@ -26,7 +26,7 @@ class _SubCategoriesListViewState extends State<SubCategoriesListView> {
           }
           final cubit = context.read<SubCategoriesCubit>();
           return Padding(
-            padding: EdgeInsets.only(right: kPagePadding),
+            padding: EdgeInsets.only(right: kPageHorizontalPadding),
             child: SizedBox(
               height: 78.sp,
               child: ListView.builder(

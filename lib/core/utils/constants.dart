@@ -1,3 +1,3 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-final kPagePadding = 16.w;
+final kPageHorizontalPadding = 16.w;

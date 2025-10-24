@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:otex_app/core/icons/otex_icons.dart';
 import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
@@ -12,11 +12,15 @@ class FilteringViewHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kPagePadding),
+      padding: EdgeInsets.symmetric(horizontal: kPageHorizontalPadding),
       child: Row(
         children: [
-          Icon(OtexIcons.close_small, size: 10.sp),
-          Gap(20.w),
+          IconButton(
+            icon: Icon(OtexIcons.close_small, size: 10.sp),
+            onPressed: () {
+              GoRouter.of(context).pop();
+            },
+          ),
           Text("فلترة", style: AppStyles.textStyle24),
           const Spacer(),
           Text(

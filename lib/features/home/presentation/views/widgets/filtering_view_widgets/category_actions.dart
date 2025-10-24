@@ -10,10 +10,17 @@ class CategoryActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kPagePadding),
+      padding: EdgeInsets.symmetric(horizontal: kPageHorizontalPadding),
       child: Row(
         children: [
-          const Expanded(child: CategoryListTile(icon: Icons.real_estate_agent, title: 'عقارات', subtitle: 'فلل للبيع',iconColor: Color(0xffF95B1C),)),
+          const Expanded(
+            child: CategoryListTile(
+              icon: Icons.real_estate_agent,
+              title: 'عقارات',
+              subtitle: 'فلل للبيع',
+              iconColor: Color(0xffF95B1C),
+            ),
+          ),
           Text(
             "تغيير",
             style: AppStyles.textStyle14.copyWith(
