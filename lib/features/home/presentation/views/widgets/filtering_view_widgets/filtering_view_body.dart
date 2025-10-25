@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:otex_app/core/widgets/custom_button.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/category_section.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/filtering_view_header.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/monthly_installments_section.dart';
@@ -36,6 +37,8 @@ class FilteringViewBody extends StatelessWidget {
             Gap(20.h),
             const PropertyConditionSection(),
             Gap(78.h),
+            CustomButton(onTap: () {}),
+            Gap(16.h),
           ],
         ),
       ),
