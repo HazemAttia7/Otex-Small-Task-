@@ -6,6 +6,7 @@ import 'package:otex_app/features/home/presentation/views/widgets/filtering_view
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/monthly_installments_section.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/payment_methods_section.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/price_section.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/property_condition_section.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/rooms_count_section.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/type_section.dart';
 
@@ -33,6 +34,8 @@ class FilteringViewBody extends StatelessWidget {
             Gap(20.h),
             const PaymentMethodsSection(),
             Gap(20.h),
+            const PropertyConditionSection(),
+            Gap(78.h),
           ],
         ),
       ),
