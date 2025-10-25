@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/category_section.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/filtering_view_header.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/monthly_installments_section.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/rooms_count_section.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/type_section.dart';
 
 class FilteringViewBody extends StatelessWidget {
@@ -23,6 +24,8 @@ class FilteringViewBody extends StatelessWidget {
             const MonthlyInstallmentsSection(),
             Gap(20.h),
             const TypeSection(),
+            Gap(20.h),
+            const RoomsCountSection(),
             Gap(20.h),
           ],
         ),

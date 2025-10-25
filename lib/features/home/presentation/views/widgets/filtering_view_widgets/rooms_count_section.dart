@@ -5,14 +5,14 @@ import 'package:otex_app/core/utils/constants.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/section_header.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/selection_chip.dart';
 
-class TypeSection extends StatefulWidget {
-  const TypeSection({super.key});
+class RoomsCountSection extends StatefulWidget {
+  const RoomsCountSection({super.key});
 
   @override
-  State<TypeSection> createState() => _TypeSectionState();
+  State<RoomsCountSection> createState() => _RoomsCountSectionState();
 }
 
-class _TypeSectionState extends State<TypeSection> {
+class _RoomsCountSectionState extends State<RoomsCountSection> {
   int selectedChipIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class _TypeSectionState extends State<TypeSection> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SectionHeader(sectionTitle: "النوع"),
+          const SectionHeader(sectionTitle: "عدد الغرف"),
           Gap(12.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: kPageHorizontalPadding),
@@ -39,7 +39,7 @@ class _TypeSectionState extends State<TypeSection> {
                   },
                 ),
                 SelectionChip(
-                  typeText: "توين هاوس",
+                  typeText: "غرفتين",
                   isSelected: selectedChipIndex == 1,
                   onTap: () {
                     setState(() {
@@ -48,7 +48,7 @@ class _TypeSectionState extends State<TypeSection> {
                   },
                 ),
                 SelectionChip(
-                  typeText: "فيلا منفصلة",
+                  typeText: "3 غرف",
                   isSelected: selectedChipIndex == 2,
                   onTap: () {
                     setState(() {
@@ -57,11 +57,20 @@ class _TypeSectionState extends State<TypeSection> {
                   },
                 ),
                 SelectionChip(
-                  typeText: "تاون هاوس",
+                  typeText: "4 غرف",
                   isSelected: selectedChipIndex == 3,
                   onTap: () {
                     setState(() {
                       selectedChipIndex = 3;
+                    });
+                  },
+                ),
+                SelectionChip(
+                  typeText: "+5 غرف",
+                  isSelected: selectedChipIndex == 4,
+                  onTap: () {
+                    setState(() {
+                      selectedChipIndex = 4;
                     });
                   },
                 ),

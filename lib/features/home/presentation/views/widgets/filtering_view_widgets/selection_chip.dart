@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
 
-class TypeSelectionChip extends StatelessWidget {
+class SelectionChip extends StatelessWidget {
   final String typeText;
   final VoidCallback onTap;
   final bool isSelected;
-  const TypeSelectionChip({
+  const SelectionChip({
     super.key,
     this.isSelected = false,
     required this.typeText,
