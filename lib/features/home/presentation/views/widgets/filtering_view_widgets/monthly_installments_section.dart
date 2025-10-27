@@ -5,7 +5,9 @@ import 'package:otex_app/features/home/presentation/views/widgets/filtering_view
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/section_header.dart';
 
 class MonthlyInstallmentsSection extends StatefulWidget {
-  const MonthlyInstallmentsSection({super.key});
+  final Function(String?) onMinInstallmentChanged;
+  final Function(String?) onMaxInstallmentChanged;
+  const MonthlyInstallmentsSection({super.key, required this.onMinInstallmentChanged, required this.onMaxInstallmentChanged});
 
   @override
   State<MonthlyInstallmentsSection> createState() =>
@@ -31,7 +33,12 @@ class _MonthlyInstallmentsSectionState
       children: [
         const SectionHeader(sectionTitle: "الأقساط الشهرية"),
         Gap(12.h),
-        MinMaxInstallmentTextFields(minController: minController, maxController: maxController),
+        MinMaxInstallmentTextFields(
+          minController: minController,
+          maxController: maxController,
+          onMinInstallmentChanged : widget.onMinInstallmentChanged,
+          onMaxInstallmentChanged : widget.onMaxInstallmentChanged,
+        ),
       ],
     );
   }

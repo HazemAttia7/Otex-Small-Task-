@@ -11,9 +11,19 @@ import 'package:otex_app/features/home/presentation/views/widgets/filtering_view
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/rooms_count_section.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/type_section.dart';
 
-class FilteringViewBody extends StatelessWidget {
+class FilteringViewBody extends StatefulWidget {
   const FilteringViewBody({super.key});
 
+  @override
+  State<FilteringViewBody> createState() => _FilteringViewBodyState();
+}
+
+class _FilteringViewBodyState extends State<FilteringViewBody> {
+  String? minIntallmentValue,
+      minProductPrice,
+      maxIntallmentValue,
+      maxProductPrice;
+  int selectedTypeId = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,9 +35,20 @@ class FilteringViewBody extends StatelessWidget {
             Gap(32.h),
             const CategorySection(),
             Gap(20.h),
-            const MonthlyInstallmentsSection(),
+            MonthlyInstallmentsSection(
+              onMinInstallmentChanged: (String? value) {
+                minIntallmentValue = value;
+              },
+              onMaxInstallmentChanged: (String? value) {
+                maxIntallmentValue = value;
+              },
+            ),
             Gap(20.h),
-            const TypeSection(),
+            TypeSection(
+              onSelectType: (int selectedIndex) {
+                selectedTypeId = selectedIndex;
+              },
+            ),
             Gap(20.h),
             const RoomsCountSection(),
             Gap(20.h),

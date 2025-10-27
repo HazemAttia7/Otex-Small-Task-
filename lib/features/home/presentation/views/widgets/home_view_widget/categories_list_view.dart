@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:otex_app/core/database/models/category_model.dart';
 import 'package:otex_app/core/utils/constants.dart';
 import 'package:otex_app/core/widgets/custom_error_widget.dart';
 import 'package:otex_app/core/widgets/custom_loading_indicator.dart';
@@ -31,29 +32,49 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: state.categories.length,
-                itemBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.only(left: 8.w),
-                  child: SelectableItem(
-                    itemName: state.categories[index].name,
-                    isSelected: selectedIndex == index,
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = index;
-                        context.read<SubCategoriesCubit>().resetSelectedIndex();
-                        BlocProvider.of<ProductsCubit>(
-                          context,
-                        ).fetchProductsByCategory(
-                          categoryId: state.categories[index].id!,
-                        );
-                        BlocProvider.of<SubCategoriesCubit>(
-                          context,
-                        ).fetchSubCategoriesByCategory(
-                          categoryId: state.categories[index].id!,
-                        );
-                      });
-                    },
-                  ),
-                ),
+                itemBuilder: (context, index) {
+                  Category category = state.categories[index];
+                  return Padding(
+                    padding: EdgeInsets.only(left: 8.w),
+                    child: SelectableItem(
+                      itemName: category.name,
+                      isSelected: selectedIndex == index,
+                      onTap: () {
+                        if (selectedIndex != index) {
+                          setState(() {
+                            selectedIndex = index;
+                          });
+                          context
+                              .read<SubCategoriesCubit>()
+                              .resetSelectedIndex();
+                          if (selectedIndex == 0) {
+                            context.read<CategoriesCubit>().selectCategory(
+                              null,
+                            );
+                            BlocProvider.of<ProductsCubit>(
+                              context,
+                            ).fetchAllProducts();
+                            BlocProvider.of<SubCategoriesCubit>(
+                              context,
+                            ).fetchAllSubcategories();
+                          } else {
+                            context.read<CategoriesCubit>().selectCategory(
+                              category,
+                            );
+                            BlocProvider.of<ProductsCubit>(
+                              context,
+                            ).fetchProductsByCategory(categoryId: category.id!);
+                            BlocProvider.of<SubCategoriesCubit>(
+                              context,
+                            ).fetchSubCategoriesByCategory(
+                              categoryId: category.id!,
+                            );
+                          }
+                        }
+                      },
+                    ),
+                  );
+                },
               ),
             ),
           );

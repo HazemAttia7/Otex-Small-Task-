@@ -11,8 +11,16 @@ class HomeIconTextRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        GoRouter.of(context).push(AppRouter.kFilteringView);
+      onTap: () async {
+        final result = await GoRouter.of(context).push(AppRouter.kFilteringView);
+        if (result != null && result is Map) {
+          // BlocProvider.of<ProductsCubit>(context).filterProducts(
+          //   categoryId: result["categoryId"],
+          //   subCategoryId: result["subCategoryId"],
+          //   minPrice: result["minPrice"],
+          //   maxPrice: result["maxPrice"],
+          // );
+        }
       },
       child: Row(
         mainAxisSize: MainAxisSize.min,

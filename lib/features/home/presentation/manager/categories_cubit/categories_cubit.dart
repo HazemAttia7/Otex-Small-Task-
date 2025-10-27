@@ -7,6 +7,12 @@ part 'categories_state.dart';
 
 class CategoriesCubit extends Cubit<CategoriesState> {
   final HomeRepo homeRepo;
+  Category? selectedCategory;
+
+  void selectCategory(Category? category) {
+    selectedCategory = category;
+  }
+
   CategoriesCubit(this.homeRepo) : super(CategoriesInitial());
 
   Future<void> fetchAllCategories() async {

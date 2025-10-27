@@ -6,7 +6,8 @@ import 'package:otex_app/features/home/presentation/views/widgets/filtering_view
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/selection_chip.dart';
 
 class TypeSection extends StatefulWidget {
-  const TypeSection({super.key});
+  final Function(int) onSelectType;
+  const TypeSection({super.key, required this.onSelectType});
 
   @override
   State<TypeSection> createState() => _TypeSectionState();
@@ -36,6 +37,7 @@ class _TypeSectionState extends State<TypeSection> {
                     setState(() {
                       selectedChipIndex = 0;
                     });
+                    widget.onSelectType(selectedChipIndex);
                   },
                 ),
                 SelectionChip(
@@ -45,6 +47,7 @@ class _TypeSectionState extends State<TypeSection> {
                     setState(() {
                       selectedChipIndex = 1;
                     });
+                    widget.onSelectType(selectedChipIndex);
                   },
                 ),
                 SelectionChip(
@@ -54,6 +57,7 @@ class _TypeSectionState extends State<TypeSection> {
                     setState(() {
                       selectedChipIndex = 2;
                     });
+                    widget.onSelectType(selectedChipIndex);
                   },
                 ),
                 SelectionChip(
@@ -63,6 +67,7 @@ class _TypeSectionState extends State<TypeSection> {
                     setState(() {
                       selectedChipIndex = 3;
                     });
+                    widget.onSelectType(selectedChipIndex);
                   },
                 ),
               ],

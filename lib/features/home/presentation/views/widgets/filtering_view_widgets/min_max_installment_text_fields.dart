@@ -4,10 +4,14 @@ import 'package:otex_app/core/utils/constants.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/filter_text_field.dart';
 
 class MinMaxInstallmentTextFields extends StatelessWidget {
+  final Function(String?) onMinInstallmentChanged;
+  final Function(String?) onMaxInstallmentChanged;
   const MinMaxInstallmentTextFields({
     super.key,
     required this.minController,
     required this.maxController,
+    required this.onMinInstallmentChanged,
+    required this.onMaxInstallmentChanged,
   });
 
   final TextEditingController minController;
@@ -26,6 +30,7 @@ class MinMaxInstallmentTextFields extends StatelessWidget {
               controller: minController,
               keyboardType: TextInputType.number,
               suffixText: 'جنيه',
+              onChanged: onMinInstallmentChanged,
             ),
           ),
           Expanded(
@@ -34,6 +39,7 @@ class MinMaxInstallmentTextFields extends StatelessWidget {
               controller: maxController,
               keyboardType: TextInputType.number,
               suffixText: 'جنيه',
+              onChanged: onMaxInstallmentChanged,
             ),
           ),
         ],

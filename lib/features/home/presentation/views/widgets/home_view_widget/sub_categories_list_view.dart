@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:otex_app/core/database/models/sub_category_model.dart';
 import 'package:otex_app/core/utils/constants.dart';
 import 'package:otex_app/core/widgets/custom_error_widget.dart';
 import 'package:otex_app/core/widgets/custom_loading_indicator.dart';
@@ -33,23 +34,35 @@ class _SubCategoriesListViewState extends State<SubCategoriesListView> {
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: state.subCategories.length,
-                itemBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.only(left: 8.w),
-                  child: SubCategoriesListViewItem(
-                    subCategory: state.subCategories[index],
-                    isSelected: cubit.selectedIndex == index,
-                    onTap: () {
-                      setState(() {
-                        cubit.selectedIndex = index;
-                        BlocProvider.of<ProductsCubit>(
-                          context,
-                        ).fetchProductsBySubCategory(
-                          subCategoryId: state.subCategories[index].id!,
-                        );
-                      });
-                    },
-                  ),
-                ),
+                itemBuilder: (context, index) {
+                  final SubCategory subCategory = state.subCategories[index];
+                  return Padding(
+                    padding: EdgeInsets.only(left: 8.w),
+                    child: SubCategoriesListViewItem(
+                      subCategory: subCategory,
+                      isSelected: cubit.selectedIndex == index,
+                      onTap: () {
+                        if (cubit.selectedIndex != index) {
+                          setState(() {
+                            cubit.selectedIndex = index;
+                          });
+                          cubit.selectedIndex == -1
+                              ? BlocProvider.of<SubCategoriesCubit>(
+                                  context,
+                                ).selectSubCategory(null)
+                              : BlocProvider.of<SubCategoriesCubit>(
+                                  context,
+                                ).selectSubCategory(state.subCategories[index]);
+                          BlocProvider.of<ProductsCubit>(
+                            context,
+                          ).fetchProductsBySubCategory(
+                            subCategoryId: subCategory.id!,
+                          );
+                        }
+                      },
+                    ),
+                  );
+                },
               ),
             ),
           );

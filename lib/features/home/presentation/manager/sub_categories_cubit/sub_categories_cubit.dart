@@ -7,10 +7,16 @@ part 'sub_categories_state.dart';
 
 class SubCategoriesCubit extends Cubit<SubCategoriesState> {
   final HomeRepo homeRepo;
+  SubCategory? selectedSubCategory;
   int selectedIndex = -1;
+
+  void selectSubCategory(SubCategory? subCategory) {
+    selectedSubCategory = subCategory;
+  }
 
   void resetSelectedIndex() {
     selectedIndex = -1;
+    selectedSubCategory = null;
   }
 
   SubCategoriesCubit(this.homeRepo) : super(SubCategoriesInitial());
@@ -27,9 +33,9 @@ class SubCategoriesCubit extends Cubit<SubCategoriesState> {
 
   Future<void> fetchSubCategoriesByCategory({required int categoryId}) async {
     emit(SubCategoriesLoading());
-    final result = categoryId == 0
-        ? await homeRepo.getAllSubCategories()
-        : await homeRepo.getSubCategoriesByCategory(categoryId: categoryId);
+    final result = await homeRepo.getSubCategoriesByCategory(
+      categoryId: categoryId,
+    );
     result.fold(
       (failure) => emit(SubCategoriesFailure(errMessage: failure.errMessage)),
       (subCategories) =>
