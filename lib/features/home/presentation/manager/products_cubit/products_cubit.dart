@@ -37,4 +37,35 @@ class ProductsCubit extends Cubit<ProductsState> {
       (products) => emit(ProductsSuccess(products: products)),
     );
   }
+
+  Future<void> fetchFilteredProducts({
+    int? selectedCategoryId,
+    int? selectedSubCategoryId,
+    String? minProductPrice,
+    String? maxProductPrice,
+    String? minInstallmentValue,
+    String? maxInstallmentValue,
+    String? propertyType,
+    String? propertyRoomsCount,
+    String? paymentMethod,
+    String? propertyStatus,
+  }) async {
+    emit(ProductsLoading());
+    final result = await homeRepo.getFilteredProducts(
+      selectedCategoryId: selectedCategoryId,
+      selectedSubCategoryId: selectedSubCategoryId,
+      minProductPrice: minProductPrice,
+      maxProductPrice: maxProductPrice,
+      minInstallmentValue: minInstallmentValue,
+      maxInstallmentValue: maxInstallmentValue,
+      propertyType: propertyType,
+      propertyRoomsCount: propertyRoomsCount,
+      paymentMethod: paymentMethod,
+      propertyStatus: propertyStatus,
+    );
+    result.fold(
+      (failure) => emit(ProductsFailure(errMessage: failure.errMessage)),
+      (products) => emit(ProductsSuccess(products: products)),
+    );
+  }
 }

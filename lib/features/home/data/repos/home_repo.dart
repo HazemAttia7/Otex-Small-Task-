@@ -17,4 +17,31 @@ abstract class HomeRepo {
   Future<Either<Failure, List<Product>>> getProductsBySubCategory({
     required int subCategoryId,
   });
+  Future<Either<Failure, List<String>>> getAllPropertyTypes();
+
+  Future<Either<Failure, List<Product>>> getFilteredProducts({
+    int? selectedCategoryId,
+    int? selectedSubCategoryId,
+    String? minProductPrice,
+    String? maxProductPrice,
+    String? minInstallmentValue,
+    String? maxInstallmentValue,
+    String? propertyType,
+    String? propertyRoomsCount,
+    String? paymentMethod,
+    String? propertyStatus,
+  });
+
+  Future<Either<Failure, int>> getFilteredProductsCount({
+    int? selectedCategoryId,
+    int? selectedSubCategoryId,
+    String? minProductPrice,
+    String? maxProductPrice,
+    String? minInstallmentValue,
+    String? maxInstallmentValue,
+    String? propertyType,
+    String? propertyRoomsCount,
+    String? paymentMethod,
+    String? propertyStatus,
+  });
 }

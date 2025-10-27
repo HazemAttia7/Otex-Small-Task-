@@ -5,7 +5,13 @@ import 'package:otex_app/features/home/presentation/views/widgets/filtering_view
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/section_header.dart';
 
 class PriceSection extends StatefulWidget {
-  const PriceSection({super.key});
+  final Function(String?) onMinPriceChanged, onMaxPriceChanged;
+  final TextEditingController minProductPriceController,maxProductPriceController;
+  const PriceSection({
+    super.key,
+    required this.onMinPriceChanged,
+    required this.onMaxPriceChanged, required this.minProductPriceController, required this.maxProductPriceController,
+  });
 
   @override
   State<PriceSection> createState() => _PriceSectionState();
@@ -30,8 +36,10 @@ class _PriceSectionState extends State<PriceSection> {
         const SectionHeader(sectionTitle: "السعر"),
         Gap(12.h),
         MinMaxPriceTextFields(
-          minController: minController,
-          maxController: maxController,
+          minController: widget.minProductPriceController,
+          maxController: widget.maxProductPriceController,
+          onMinPriceChanged: widget.onMinPriceChanged,
+          onMaxPriceChanged: widget.onMaxPriceChanged,
         ),
       ],
     );

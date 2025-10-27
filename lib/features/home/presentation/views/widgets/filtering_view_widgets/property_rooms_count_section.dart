@@ -5,16 +5,15 @@ import 'package:otex_app/core/utils/constants.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/section_header.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/selection_chip.dart';
 
-class PropertyConditionSection extends StatefulWidget {
-  const PropertyConditionSection({super.key});
+class PropertyRoomsCountSection extends StatelessWidget {
+  final Function(String?) onSelectCount;
+  final String? selectedCount;
+  const PropertyRoomsCountSection({
+    super.key,
+    required this.onSelectCount,
+    required this.selectedCount,
+  });
 
-  @override
-  State<PropertyConditionSection> createState() =>
-      _PropertyConditionSectionState();
-}
-
-class _PropertyConditionSectionState extends State<PropertyConditionSection> {
-  int selectedChipIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -22,7 +21,7 @@ class _PropertyConditionSectionState extends State<PropertyConditionSection> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SectionHeader(sectionTitle: "حالة العقار"),
+          const SectionHeader(sectionTitle: "عدد الغرف"),
           Gap(12.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: kPageHorizontalPadding),
@@ -31,30 +30,38 @@ class _PropertyConditionSectionState extends State<PropertyConditionSection> {
               runSpacing: 10.w,
               children: [
                 SelectionChip(
-                  typeText: "أي",
-                  isSelected: selectedChipIndex == 0,
+                  typeText: "الكل",
+                  isSelected: selectedCount == null,
                   onTap: () {
-                    setState(() {
-                      selectedChipIndex = 0;
-                    });
+                    onSelectCount(null);
                   },
                 ),
                 SelectionChip(
-                  typeText: "جاهز",
-                  isSelected: selectedChipIndex == 1,
+                  typeText: "غرفتين",
+                  isSelected: selectedCount == "2",
                   onTap: () {
-                    setState(() {
-                      selectedChipIndex = 1;
-                    });
+                    onSelectCount("2");
                   },
                 ),
                 SelectionChip(
-                  typeText: "قيد الإنشاء",
-                  isSelected: selectedChipIndex == 2,
+                  typeText: "3 غرف",
+                  isSelected: selectedCount == "3",
                   onTap: () {
-                    setState(() {
-                      selectedChipIndex = 2;
-                    });
+                    onSelectCount("3");
+                  },
+                ),
+                SelectionChip(
+                  typeText: "4 غرف",
+                  isSelected: selectedCount == "4",
+                  onTap: () {
+                    onSelectCount("4");
+                  },
+                ),
+                SelectionChip(
+                  typeText: "+5 غرف",
+                  isSelected: selectedCount == "+5",
+                  onTap: () {
+                    onSelectCount("+5");
                   },
                 ),
               ],

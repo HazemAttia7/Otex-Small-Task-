@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseSeeder {
@@ -47,6 +50,7 @@ class DatabaseSeeder {
       "price": 32000000,
       "discount_percent": 50,
       "sold_count": 3300,
+      "payment_method": _randomPayment(),
       "subcategory_id": 1,
     });
     await db.insert("Products", {
@@ -56,6 +60,7 @@ class DatabaseSeeder {
       "price": 32000000,
       "discount_percent": 52,
       "sold_count": 3100,
+      "payment_method": _randomPayment(),
       "subcategory_id": 1,
     });
     await db.insert("Products", {
@@ -65,6 +70,7 @@ class DatabaseSeeder {
       "price": 32000000,
       "discount_percent": 47,
       "sold_count": 2900,
+      "payment_method": _randomPayment(),
       "subcategory_id": 1,
     });
     await db.insert("Products", {
@@ -74,6 +80,7 @@ class DatabaseSeeder {
       "price": 32000000,
       "discount_percent": 50,
       "sold_count": 2500,
+      "payment_method": _randomPayment(),
       "subcategory_id": 1,
     });
     await db.insert("Products", {
@@ -83,6 +90,7 @@ class DatabaseSeeder {
       "price": 34000000,
       "discount_percent": 35,
       "sold_count": 1800,
+      "payment_method": _randomPayment(),
       "subcategory_id": 1,
     });
     await db.insert("Products", {
@@ -92,6 +100,7 @@ class DatabaseSeeder {
       "price": 31500000,
       "discount_percent": 45,
       "sold_count": 1500,
+      "payment_method": _randomPayment(),
       "subcategory_id": 1,
     });
     await db.insert("Products", {
@@ -100,6 +109,7 @@ class DatabaseSeeder {
       "name": "قميص قطن كلاسيكي",
       "price": 28000000,
       "discount_percent": 0,
+      "payment_method": _randomPayment(),
       "subcategory_id": 1,
     });
     await db.insert("Products", {
@@ -109,6 +119,7 @@ class DatabaseSeeder {
       "price": 30000000,
       "discount_percent": 40,
       "sold_count": 2100,
+      "payment_method": _randomPayment(),
       "subcategory_id": 1,
     });
 
@@ -120,6 +131,7 @@ class DatabaseSeeder {
       "price": 7200,
       "discount_percent": 10,
       "sold_count": 4000,
+      "payment_method": _randomPayment(),
       "subcategory_id": 2,
     });
     await db.insert("Products", {
@@ -128,6 +140,7 @@ class DatabaseSeeder {
       "name": "ساعة كلاسيك ستانلس ستيل",
       "price": 3200,
       "discount_percent": 20,
+      "payment_method": _randomPayment(),
       "subcategory_id": 2,
     });
     await db.insert("Products", {
@@ -136,6 +149,7 @@ class DatabaseSeeder {
       "name": "ساعة فاخرة جلدية",
       "price": 12500,
       "discount_percent": 12,
+      "payment_method": _randomPayment(),
       "subcategory_id": 2,
     });
     await db.insert("Products", {
@@ -144,6 +158,7 @@ class DatabaseSeeder {
       "price": 2600,
       "discount_percent": 0,
       "sold_count": 900,
+      "payment_method": _randomPayment(),
       "subcategory_id": 2,
     });
     await db.insert("Products", {
@@ -153,6 +168,7 @@ class DatabaseSeeder {
       "price": 4100,
       "discount_percent": 15,
       "sold_count": 700,
+      "payment_method": _randomPayment(),
       "subcategory_id": 2,
     });
     await db.insert("Products", {
@@ -162,6 +178,7 @@ class DatabaseSeeder {
       "price": 1900,
       "discount_percent": 22,
       "sold_count": 850,
+      "payment_method": _randomPayment(),
       "subcategory_id": 2,
     });
     await db.insert("Products", {
@@ -170,6 +187,7 @@ class DatabaseSeeder {
       "price": 5400,
       "discount_percent": 8,
       "sold_count": 420,
+      "payment_method": _randomPayment(),
       "subcategory_id": 2,
     });
     await db.insert("Products", {
@@ -179,6 +197,7 @@ class DatabaseSeeder {
       "price": 900,
       "discount_percent": 30,
       "sold_count": 2300,
+      "payment_method": _randomPayment(),
       "subcategory_id": 2,
     });
 
@@ -190,6 +209,7 @@ class DatabaseSeeder {
       "price": 58000,
       "discount_percent": 15,
       "sold_count": 520,
+      "payment_method": _randomPayment(),
       "subcategory_id": 3,
     });
     await db.insert("Products", {
@@ -198,6 +218,7 @@ class DatabaseSeeder {
       "price": 42000,
       "discount_percent": 10,
       "sold_count": 890,
+      "payment_method": _randomPayment(),
       "subcategory_id": 3,
     });
     await db.insert("Products", {
@@ -206,6 +227,7 @@ class DatabaseSeeder {
       "price": 22000,
       "discount_percent": 20,
       "sold_count": 670,
+      "payment_method": _randomPayment(),
       "subcategory_id": 3,
     });
     await db.insert("Products", {
@@ -214,6 +236,7 @@ class DatabaseSeeder {
       "price": 36000,
       "discount_percent": 12,
       "sold_count": 340,
+      "payment_method": _randomPayment(),
       "subcategory_id": 3,
     });
     await db.insert("Products", {
@@ -222,6 +245,7 @@ class DatabaseSeeder {
       "price": 29500,
       "discount_percent": 18,
       "sold_count": 210,
+      "payment_method": _randomPayment(),
       "subcategory_id": 3,
     });
     await db.insert("Products", {
@@ -230,6 +254,7 @@ class DatabaseSeeder {
       "price": 74000,
       "discount_percent": 8,
       "sold_count": 95,
+      "payment_method": _randomPayment(),
       "subcategory_id": 3,
     });
     await db.insert("Products", {
@@ -238,6 +263,7 @@ class DatabaseSeeder {
       "price": 33000,
       "discount_percent": 14,
       "sold_count": 410,
+      "payment_method": _randomPayment(),
       "subcategory_id": 3,
     });
     await db.insert("Products", {
@@ -246,16 +272,19 @@ class DatabaseSeeder {
       "price": 8500,
       "discount_percent": 25,
       "sold_count": 1500,
+      "payment_method": _randomPayment(),
       "subcategory_id": 3,
     });
 
     // --------------------- منتجات تجميل (subcategory_id = 4) - 8 products ---------------------
     await db.insert("Products", {
-      "image": "https://s3-alpha-sig.figma.com/img/aa10/eae4/05657f831bc1879e160e36a0ac7ed48d?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aqzUIj~dcPMaX~~tZ7U~OAFmGsArH7kyN~ucEQ7Rwtu7puYLQ1PNA8Zk47gKaxO64s7ltqWGR1sHbzc2IplMuLOxMy5yGNOKXQyQtHxkNoOUxSe4hcOjTRKtN42cslNpl5nTRN~KnMSdx-J88hf58qX689ANp7wrwZEFVGWc-IzJcHrzuXQTLj4MOsxxdwC7Uw7AtFaMZ~zt4Frb23QQ4mYHsM2csvHuq-IiDxg8JN0TbiMNOJ9f9u0Z0wDpWTxMZZJptPQhhFieWobtiFYcg~NbHGCGtwCEBBtWzpYfeXQtQhZ~tXiY8ZFOyj8cnhW4S3e4N3bSutQOglDaeKTeCw__",
+      "image":
+          "https://s3-alpha-sig.figma.com/img/aa10/eae4/05657f831bc1879e160e36a0ac7ed48d?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aqzUIj~dcPMaX~~tZ7U~OAFmGsArH7kyN~ucEQ7Rwtu7puYLQ1PNA8Zk47gKaxO64s7ltqWGR1sHbzc2IplMuLOxMy5yGNOKXQyQtHxkNoOUxSe4hcOjTRKtN42cslNpl5nTRN~KnMSdx-J88hf58qX689ANp7wrwZEFVGWc-IzJcHrzuXQTLj4MOsxxdwC7Uw7AtFaMZ~zt4Frb23QQ4mYHsM2csvHuq-IiDxg8JN0TbiMNOJ9f9u0Z0wDpWTxMZZJptPQhhFieWobtiFYcg~NbHGCGtwCEBBtWzpYfeXQtQhZ~tXiY8ZFOyj8cnhW4S3e4N3bSutQOglDaeKTeCw__",
       "name": "أحمر شفاه طويل الثبات",
       "price": 320,
       "discount_percent": 25,
       "sold_count": 450,
+      "payment_method": _randomPayment(),
       "subcategory_id": 4,
     });
     await db.insert("Products", {
@@ -264,6 +293,7 @@ class DatabaseSeeder {
       "price": 480,
       "discount_percent": 15,
       "sold_count": 600,
+      "payment_method": _randomPayment(),
       "subcategory_id": 4,
     });
     await db.insert("Products", {
@@ -272,6 +302,7 @@ class DatabaseSeeder {
       "price": 1250,
       "discount_percent": 10,
       "sold_count": 320,
+      "payment_method": _randomPayment(),
       "subcategory_id": 4,
     });
     await db.insert("Products", {
@@ -280,14 +311,17 @@ class DatabaseSeeder {
       "price": 380,
       "discount_percent": 20,
       "sold_count": 210,
+      "payment_method": _randomPayment(),
       "subcategory_id": 4,
     });
     await db.insert("Products", {
-      "image": "https://s3-alpha-sig.figma.com/img/aa10/eae4/05657f831bc1879e160e36a0ac7ed48d?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aqzUIj~dcPMaX~~tZ7U~OAFmGsArH7kyN~ucEQ7Rwtu7puYLQ1PNA8Zk47gKaxO64s7ltqWGR1sHbzc2IplMuLOxMy5yGNOKXQyQtHxkNoOUxSe4hcOjTRKtN42cslNpl5nTRN~KnMSdx-J88hf58qX689ANp7wrwZEFVGWc-IzJcHrzuXQTLj4MOsxxdwC7Uw7AtFaMZ~zt4Frb23QQ4mYHsM2csvHuq-IiDxg8JN0TbiMNOJ9f9u0Z0wDpWTxMZZJptPQhhFieWobtiFYcg~NbHGCGtwCEBBtWzpYfeXQtQhZ~tXiY8ZFOyj8cnhW4S3e4N3bSutQOglDaeKTeCw__",
+      "image":
+          "https://s3-alpha-sig.figma.com/img/aa10/eae4/05657f831bc1879e160e36a0ac7ed48d?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aqzUIj~dcPMaX~~tZ7U~OAFmGsArH7kyN~ucEQ7Rwtu7puYLQ1PNA8Zk47gKaxO64s7ltqWGR1sHbzc2IplMuLOxMy5yGNOKXQyQtHxkNoOUxSe4hcOjTRKtN42cslNpl5nTRN~KnMSdx-J88hf58qX689ANp7wrwZEFVGWc-IzJcHrzuXQTLj4MOsxxdwC7Uw7AtFaMZ~zt4Frb23QQ4mYHsM2csvHuq-IiDxg8JN0TbiMNOJ9f9u0Z0wDpWTxMZZJptPQhhFieWobtiFYcg~NbHGCGtwCEBBtWzpYfeXQtQhZ~tXiY8ZFOyj8cnhW4S3e4N3bSutQOglDaeKTeCw__",
       "name": "مسكارا لمظهر مكثف",
       "price": 230,
       "discount_percent": 18,
       "sold_count": 470,
+      "payment_method": _randomPayment(),
       "subcategory_id": 4,
     });
     await db.insert("Products", {
@@ -296,6 +330,7 @@ class DatabaseSeeder {
       "price": 150,
       "discount_percent": 30,
       "sold_count": 130,
+      "payment_method": _randomPayment(),
       "subcategory_id": 4,
     });
     await db.insert("Products", {
@@ -304,6 +339,7 @@ class DatabaseSeeder {
       "price": 200,
       "discount_percent": 12,
       "sold_count": 300,
+      "payment_method": _randomPayment(),
       "subcategory_id": 4,
     });
     await db.insert("Products", {
@@ -312,74 +348,197 @@ class DatabaseSeeder {
       "price": 620,
       "discount_percent": 22,
       "sold_count": 180,
+      "payment_method": _randomPayment(),
       "subcategory_id": 4,
     });
 
     // --------------------- فلل (subcategory_id = 5) - 8 products ---------------------
-    await db.insert("Products", {
-      "image": "https://s3-alpha-sig.figma.com/img/7454/792e/e9714c29e87721d609d750dcad0f28b8?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=SweuqyNduHZ41VRV92IZ9wYrsQ4o5Rsoh0BkA9fSyLvbRkXPbBfG~Xq99RVy4rpI0nPJeR-fEhBK04ehHh1RCjSipXFrFn90kLyViRp7Zrvgma7tIkK1ecSAFDgJvBxNSNmEdLoOD8CMlJ3sAfpmJldz~tgn2FfhFuie0hiRjD-W2yyFdMPr6bKt3-O4SrTTtkbJKMODs1aXsNnCB3MHh702g11Id847NLbpX196xtx5A8gBvAVZ7V-2aWQHhdTUOA6bhAWjUfg50DfQcC6fns4xxJri2tijEvSTmWlrTzTiHFSMn34dcqG4ga-47UO5PGw694rC0T8uGDxOPTJI-A__",
+
+    int productId;
+
+    productId = await db.insert("Products", {
+      "image":
+          "https://s3-alpha-sig.figma.com/img/7454/792e/e9714c29e87721d609d750dcad0f28b8?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=SweuqyNduHZ41VRV92IZ9wYrsQ4o5Rsoh0BkA9fSyLvbRkXPbBfG~Xq99RVy4rpI0nPJeR-fEhBK04ehHh1RCjSipXFrFn90kLyViRp7Zrvgma7tIkK1ecSAFDgJvBxNSNmEdLoOD8CMlJ3sAfpmJldz~tgn2FfhFuie0hiRjD-W2yyFdMPr6bKt3-O4SrTTtkbJKMODs1aXsNnCB3MHh702g11Id847NLbpX196xtx5A8gBvAVZ7V-2aWQHhdTUOA6bhAWjUfg50DfQcC6fns4xxJri2tijEvSTmWlrTzTiHFSMn34dcqG4ga-47UO5PGw694rC0T8uGDxOPTJI-A__",
       "name": "فيلا فاخرة في القاهرة الجديدة",
       "price": 7200000,
       "discount_percent": 5,
       "sold_count": 8,
+      "payment_method": _randomPropertyPayment(),
       "subcategory_id": 5,
     });
-    await db.insert("Products", {
+    await db.insert("Property_Details", {
+      "product_id": productId,
+      "type": _randomPropertyType(),
+      "location": _randomLocation(),
+      "rooms": _randomRooms(),
+      "property_status": "جاهز",
+      "monthly_installment": null,
+    });
+
+    productId = await db.insert("Products", {
       "image": "https://i.postimg.cc/J0MwqbL6/image.png",
       "name": "فيلا مطلة على البحر في الإسكندرية",
       "price": 12500000,
       "discount_percent": 8,
       "sold_count": 3,
+      "payment_method": _randomPropertyPayment(),
       "subcategory_id": 5,
     });
-    await db.insert("Products", {
+    await db.insert("Property_Details", {
+      "product_id": productId,
+      "type": _randomPropertyType(),
+      "location": _randomLocation(),
+      "rooms": _randomRooms(),
+      "property_status": _randomPropertyStatus(),
+      "monthly_installment": null,
+    });
+
+    productId = await db.insert("Products", {
       "image": "https://i.postimg.cc/NjVWVhtL/image.png",
       "name": "فيلا فاخرة بمساحة واسعة",
       "price": 9800000,
       "discount_percent": 6,
       "sold_count": 5,
+      "payment_method": _randomPropertyPayment(),
       "subcategory_id": 5,
     });
-    await db.insert("Products", {
-      "image": "https://s3-alpha-sig.figma.com/img/7454/792e/e9714c29e87721d609d750dcad0f28b8?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=SweuqyNduHZ41VRV92IZ9wYrsQ4o5Rsoh0BkA9fSyLvbRkXPbBfG~Xq99RVy4rpI0nPJeR-fEhBK04ehHh1RCjSipXFrFn90kLyViRp7Zrvgma7tIkK1ecSAFDgJvBxNSNmEdLoOD8CMlJ3sAfpmJldz~tgn2FfhFuie0hiRjD-W2yyFdMPr6bKt3-O4SrTTtkbJKMODs1aXsNnCB3MHh702g11Id847NLbpX196xtx5A8gBvAVZ7V-2aWQHhdTUOA6bhAWjUfg50DfQcC6fns4xxJri2tijEvSTmWlrTzTiHFSMn34dcqG4ga-47UO5PGw694rC0T8uGDxOPTJI-A__",
+    await db.insert("Property_Details", {
+      "product_id": productId,
+      "type": _randomPropertyType(),
+      "location": _randomLocation(),
+      "rooms": _randomRooms(),
+      "property_status": _randomPropertyStatus(),
+      "monthly_installment": null,
+    });
+
+    productId = await db.insert("Products", {
+      "image":
+          "https://s3-alpha-sig.figma.com/img/7454/792e/e9714c29e87721d609d750dcad0f28b8?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=SweuqyNduHZ41VRV92IZ9wYrsQ4o5Rsoh0BkA9fSyLvbRkXPbBfG~Xq99RVy4rpI0nPJeR-fEhBK04ehHh1RCjSipXFrFn90kLyViRp7Zrvgma7tIkK1ecSAFDgJvBxNSNmEdLoOD8CMlJ3sAfpmJldz~tgn2FfhFuie0hiRjD-W2yyFdMPr6bKt3-O4SrTTtkbJKMODs1aXsNnCB3MHh702g11Id847NLbpX196xtx5A8gBvAVZ7V-2aWQHhdTUOA6bhAWjUfg50DfQcC6fns4xxJri2tijEvSTmWlrTzTiHFSMn34dcqG4ga-47UO5PGw694rC0T8uGDxOPTJI-A__",
       "name": "فيلا حديثة بالقرب من الخدمات",
       "price": 4500000,
       "discount_percent": 7,
       "sold_count": 10,
+      "payment_method": _randomPropertyPayment(),
       "subcategory_id": 5,
     });
-    await db.insert("Products", {
+    await db.insert("Property_Details", {
+      "product_id": productId,
+      "type": _randomPropertyType(),
+      "location": _randomLocation(),
+      "rooms": _randomRooms(),
+      "property_status": _randomPropertyStatus(),
+      "monthly_installment": null,
+    });
+
+    productId = await db.insert("Products", {
       "image": "https://i.postimg.cc/J0MwqbL6/image.png",
       "name": "فيلا مع حديقة خاصة",
       "price": 6300000,
       "discount_percent": 5,
       "sold_count": 4,
+      "payment_method": _randomPropertyPayment(),
       "subcategory_id": 5,
     });
-    await db.insert("Products", {
+    await db.insert("Property_Details", {
+      "product_id": productId,
+      "type": _randomPropertyType(),
+      "location": _randomLocation(),
+      "rooms": _randomRooms(),
+      "property_status": _randomPropertyStatus(),
+      "monthly_installment": null,
+    });
+
+    productId = await db.insert("Products", {
       "image": "https://i.postimg.cc/J0MwqbL6/image.png",
       "name": "فيلا على البحر مباشرة",
       "price": 15000000,
       "discount_percent": 10,
       "sold_count": 2,
+      "payment_method": _randomPropertyPayment(),
       "subcategory_id": 5,
     });
-    await db.insert("Products", {
-      "image": "https://s3-alpha-sig.figma.com/img/7454/792e/e9714c29e87721d609d750dcad0f28b8?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=SweuqyNduHZ41VRV92IZ9wYrsQ4o5Rsoh0BkA9fSyLvbRkXPbBfG~Xq99RVy4rpI0nPJeR-fEhBK04ehHh1RCjSipXFrFn90kLyViRp7Zrvgma7tIkK1ecSAFDgJvBxNSNmEdLoOD8CMlJ3sAfpmJldz~tgn2FfhFuie0hiRjD-W2yyFdMPr6bKt3-O4SrTTtkbJKMODs1aXsNnCB3MHh702g11Id847NLbpX196xtx5A8gBvAVZ7V-2aWQHhdTUOA6bhAWjUfg50DfQcC6fns4xxJri2tijEvSTmWlrTzTiHFSMn34dcqG4ga-47UO5PGw694rC0T8uGDxOPTJI-A__",
+    await db.insert("Property_Details", {
+      "product_id": productId,
+      "type": _randomPropertyType(),
+      "location": _randomLocation(),
+      "rooms": _randomRooms(),
+      "property_status": _randomPropertyStatus(),
+      "monthly_installment": null,
+    });
+
+    productId = await db.insert("Products", {
+      "image":
+          "https://s3-alpha-sig.figma.com/img/7454/792e/e9714c29e87721d609d750dcad0f28b8?Expires=1762128000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=SweuqyNduHZ41VRV92IZ9wYrsQ4o5Rsoh0BkA9fSyLvbRkXPbBfG~Xq99RVy4rpI0nPJeR-fEhBK04ehHh1RCjSipXFrFn90kLyViRp7Zrvgma7tIkK1ecSAFDgJvBxNSNmEdLoOD8CMlJ3sAfpmJldz~tgn2FfhFuie0hiRjD-W2yyFdMPr6bKt3-O4SrTTtkbJKMODs1aXsNnCB3MHh702g11Id847NLbpX196xtx5A8gBvAVZ7V-2aWQHhdTUOA6bhAWjUfg50DfQcC6fns4xxJri2tijEvSTmWlrTzTiHFSMn34dcqG4ga-47UO5PGw694rC0T8uGDxOPTJI-A__",
       "name": "فيلا سكنية في منطقة هادئة",
       "price": 3800000,
       "discount_percent": 4,
       "sold_count": 6,
+      "payment_method": _randomPropertyPayment(),
       "subcategory_id": 5,
     });
-    await db.insert("Products", {
+    await db.insert("Property_Details", {
+      "product_id": productId,
+      "type": _randomPropertyType(),
+      "location": _randomLocation(),
+      "rooms": _randomRooms(),
+      "property_status": _randomPropertyStatus(),
+      "monthly_installment": null,
+    });
+
+    productId = await db.insert("Products", {
       "image": "https://i.postimg.cc/J0MwqbL6/image.png",
       "name": "فيلا جبلية بإطلالة مميزة",
       "price": 8900000,
       "discount_percent": 9,
       "sold_count": 1,
+      "payment_method": _randomPropertyPayment(),
       "subcategory_id": 5,
     });
+    await db.insert("Property_Details", {
+      "product_id": productId,
+      "type": _randomPropertyType(),
+      "location": _randomLocation(),
+      "rooms": _randomRooms(),
+      "property_status": _randomPropertyStatus(),
+      "monthly_installment": null,
+    });
   }
-  // TODO : Seed Accessories products
+
+  final _rnd = Random();
+  String _randomPropertyType() {
+    return ["توين هاوس", "فيلا منفصلة", "تاون هاوس"][_rnd.nextInt(3)];
+  }
+
+  String _randomPropertyStatus() {
+    return ["جاهز", "قيد الإنشاء"][_rnd.nextInt(2)];
+  }
+
+  String _randomPropertyPayment() {
+    final methods = ["كاش", "تقسيط"];
+    final allowBoth = _rnd.nextBool();
+    return allowBoth
+        ? jsonEncode(methods)
+        : jsonEncode([methods[_rnd.nextInt(methods.length)]]);
+  }
+
+  int _randomRooms() => 3 + _rnd.nextInt(4); 
+
+  String _randomLocation() {
+    return [
+      "القاهرة الجديدة",
+      "الشيخ زايد",
+      "العين السخنة",
+      "الإسكندرية",
+      "الغردقة",
+      "الساحل الشمالي",
+    ][_rnd.nextInt(6)];
+  }
+
+  String _randomPayment() {
+    final methods = ["كاش", "فيزا"];
+    final allowBoth = _rnd.nextBool();
+    return allowBoth
+        ? jsonEncode(methods)
+        : jsonEncode([methods[_rnd.nextInt(methods.length)]]);
+  }
 }

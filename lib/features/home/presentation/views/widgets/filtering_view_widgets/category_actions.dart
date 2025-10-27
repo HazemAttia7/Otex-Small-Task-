@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:otex_app/core/database/models/category_model.dart';
+import 'package:otex_app/core/database/models/sub_category_model.dart';
 import 'package:otex_app/core/utils/constants.dart';
-import 'package:otex_app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
-import 'package:otex_app/features/home/presentation/manager/sub_categories_cubit/sub_categories_cubit.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/category_list_tile.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/change_category_and_sub_category_text.dart';
 
 class CategoryActions extends StatelessWidget {
-  const CategoryActions({super.key});
+  final Category? selectedCategory;
+  final SubCategory? selectedSubCategory;
+  const CategoryActions({super.key, required this.selectedCategory,required this.selectedSubCategory});
 
   @override
   Widget build(BuildContext context) {
-    final selectedCategory = BlocProvider.of<CategoriesCubit>(
-      context,
-    ).selectedCategory;
-    final selectedSubCategory = BlocProvider.of<SubCategoriesCubit>(
-      context,
-    ).selectedSubCategory;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: kPageHorizontalPadding),
       child: Row(

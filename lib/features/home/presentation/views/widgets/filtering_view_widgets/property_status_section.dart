@@ -5,15 +5,13 @@ import 'package:otex_app/core/utils/constants.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/section_header.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/selection_chip.dart';
 
-class PaymentMethodsSection extends StatelessWidget {
-  final Function(String?) onPaymentMethodSelect;
-  final String? selectedPaymentMethod;
-  final int selectedCategoryId;
-  const PaymentMethodsSection({
+class PropertyStatusSection extends StatelessWidget {
+  final Function(String?) onPropertyStatusSelect;
+  final String? selectedPropertyStatus;
+  const PropertyStatusSection({
     super.key,
-    required this.onPaymentMethodSelect,
-    required this.selectedCategoryId,
-    this.selectedPaymentMethod,
+    required this.onPropertyStatusSelect,
+    this.selectedPropertyStatus,
   });
 
   @override
@@ -23,7 +21,7 @@ class PaymentMethodsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SectionHeader(sectionTitle: "طريقة الدفع"),
+          const SectionHeader(sectionTitle: "حالة العقار"),
           Gap(12.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: kPageHorizontalPadding),
@@ -33,31 +31,23 @@ class PaymentMethodsSection extends StatelessWidget {
               children: [
                 SelectionChip(
                   typeText: "أي",
-                  isSelected: selectedPaymentMethod == null,
+                  isSelected: selectedPropertyStatus == null,
                   onTap: () {
-                    onPaymentMethodSelect(null);
-                  },
-                ),
-                if (selectedCategoryId == 5)
-                  SelectionChip(
-                    typeText: "تقسيط",
-                    isSelected: selectedPaymentMethod == "تفسيط",
-                    onTap: () {
-                      onPaymentMethodSelect("تفسيط");
-                    },
-                  ),
-                SelectionChip(
-                  typeText: "كاش",
-                  isSelected: selectedPaymentMethod == "كاش",
-                  onTap: () {
-                    onPaymentMethodSelect("كاش");
+                    onPropertyStatusSelect(null);
                   },
                 ),
                 SelectionChip(
-                  typeText: "فيزا",
-                  isSelected: selectedPaymentMethod == "فيزا",
+                  typeText: "جاهز",
+                  isSelected: selectedPropertyStatus == "جاهز",
                   onTap: () {
-                    onPaymentMethodSelect("فيزا");
+                    onPropertyStatusSelect("جاهز");
+                  },
+                ),
+                SelectionChip(
+                  typeText: "قيد الإنشاء",
+                  isSelected: selectedPropertyStatus == "قيد الإنشاء",
+                  onTap: () {
+                    onPropertyStatusSelect("قيد الإنشاء");
                   },
                 ),
               ],

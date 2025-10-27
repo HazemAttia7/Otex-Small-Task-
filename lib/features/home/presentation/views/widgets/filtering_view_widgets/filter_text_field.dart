@@ -9,6 +9,7 @@ class FilterTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final TextInputType? keyboardType;
   final String? suffixText;
+  final String? Function(String?)? validator;
 
   const FilterTextField({
     super.key,
@@ -17,42 +18,40 @@ class FilterTextField extends StatelessWidget {
     this.onChanged,
     this.keyboardType,
     this.suffixText,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.sp, vertical: 4.sp),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.black.withValues(alpha: .1),
-          width: 1.sp,
-        ),
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(8.r),
-      ),
-      child: TextField(
-        controller: controller,
-        onChanged: onChanged,
-        keyboardType: keyboardType,
-        style: AppStyles.textStyle14.copyWith(color: AppColors.secondary),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: AppStyles.textStyle14.copyWith(
-            color: AppColors.mutedColor,
-          ),
-          border: InputBorder.none,
-          isDense: true,
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 6.sp,
-            vertical: 8.sp,
-          ),
-          suffixText: suffixText,
-          suffixStyle: AppStyles.textStyle14.copyWith(
-            color: AppColors.secondary,
+    return TextFormField(
+      controller: controller,
+      onChanged: onChanged,
+      keyboardType: keyboardType,
+      validator: validator,
+      style: AppStyles.textStyle14.copyWith(color: AppColors.secondary),
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: AppStyles.textStyle14.copyWith(color: AppColors.mutedColor),
+        suffix: Padding(
+          padding: EdgeInsets.only(right: 5.w),
+          child: Text(
+            suffixText ?? "",
+            style: AppStyles.textStyle14.copyWith(color: AppColors.secondary),
           ),
         ),
+        border: _buildBorder(),
+        enabledBorder: _buildBorder(),
+        focusedBorder: _buildBorder(),
+        errorMaxLines: 3,
+        isDense: true,
       ),
+    );
+  }
+
+  OutlineInputBorder _buildBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8.r),
+      borderSide: BorderSide(color: Colors.black.withValues(alpha: .1)),
     );
   }
 }

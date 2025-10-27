@@ -102,4 +102,86 @@ class HomeRepoImpl implements HomeRepo {
       return left(DatabaseFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<String>>> getAllPropertyTypes() async {
+    try {
+      return right(await _productDao.getAllPropertyTypes());
+    } on Exception catch (e) {
+      if (e is DatabaseException) {
+        return left(DatabaseFailure.fromDatabaseException(e));
+      }
+      return left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Product>>> getFilteredProducts({
+      int? selectedCategoryId,
+    int? selectedSubCategoryId,
+    String? minProductPrice,
+    String? maxProductPrice,
+    String? minInstallmentValue,
+    String? maxInstallmentValue,
+    String? propertyType,
+    String? propertyRoomsCount,
+    String? paymentMethod,
+    String? propertyStatus,
+  }) async {
+    try {
+      return right(await _productDao.getFilteredProducts(
+         selectedCategoryId: selectedCategoryId,
+          selectedSubCategoryId: selectedSubCategoryId,
+          minProductPrice: minProductPrice,
+          maxProductPrice: maxProductPrice,
+          minInstallmentValue: minInstallmentValue,
+          maxInstallmentValue: maxInstallmentValue,
+          propertyType: propertyType,
+          propertyRoomsCount: propertyRoomsCount,
+          paymentMethod: paymentMethod,
+          propertyStatus: propertyStatus,
+      ));
+    } on Exception catch (e) {
+      if (e is DatabaseException) {
+        return left(DatabaseFailure.fromDatabaseException(e));
+      }
+      return left(DatabaseFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, int>> getFilteredProductsCount({
+    int? selectedCategoryId,
+    int? selectedSubCategoryId,
+    String? minProductPrice,
+    String? maxProductPrice,
+    String? minInstallmentValue,
+    String? maxInstallmentValue,
+    String? propertyType,
+    String? propertyRoomsCount,
+    String? paymentMethod,
+    String? propertyStatus,
+  }) async {
+    try {
+      return right(
+        await _productDao.getFilteredProductsCount(
+          selectedCategoryId: selectedCategoryId,
+          selectedSubCategoryId: selectedSubCategoryId,
+          minProductPrice: minProductPrice,
+          maxProductPrice: maxProductPrice,
+          minInstallmentValue: minInstallmentValue,
+          maxInstallmentValue: maxInstallmentValue,
+          propertyType: propertyType,
+          propertyRoomsCount: propertyRoomsCount,
+          paymentMethod: paymentMethod,
+          propertyStatus: propertyStatus,
+        ),
+      );
+    } on Exception catch (e) {
+      if (e is DatabaseException) {
+        return left(DatabaseFailure.fromDatabaseException(e));
+      }
+      return left(DatabaseFailure(e.toString()));
+    }
+  }
 }

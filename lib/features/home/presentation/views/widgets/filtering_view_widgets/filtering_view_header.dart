@@ -7,7 +7,8 @@ import 'package:otex_app/core/utils/app_styles.dart';
 import 'package:otex_app/core/utils/constants.dart';
 
 class FilteringViewHeader extends StatelessWidget {
-  const FilteringViewHeader({super.key});
+  final VoidCallback onResetFilter;
+  const FilteringViewHeader({super.key, required this.onResetFilter});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +24,14 @@ class FilteringViewHeader extends StatelessWidget {
           ),
           Text("فلترة", style: AppStyles.textStyle24),
           const Spacer(),
-          Text(
-            "رجوع للإفتراضي",
-            style: AppStyles.textStyle16Bold.copyWith(color: AppColors.primary),
+          GestureDetector(
+            onTap: onResetFilter,
+            child: Text(
+              "رجوع للإفتراضي",
+              style: AppStyles.textStyle16Bold.copyWith(
+                color: AppColors.primary,
+              ),
+            ),
           ),
         ],
       ),
