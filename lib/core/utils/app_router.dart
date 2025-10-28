@@ -8,11 +8,13 @@ import 'package:otex_app/features/home/presentation/manager/sub_categories_cubit
 import 'package:otex_app/features/home/presentation/views/filtering_view.dart';
 import 'package:otex_app/features/home/presentation/views/home_view.dart';
 import 'package:otex_app/features/main/presentation/views/main_view.dart';
+import 'package:otex_app/features/profile/presentation/views/profile_view.dart';
 
 abstract class AppRouter {
   static const kMainView = "/";
   static const kHomeView = "/home";
   static const kFilteringView = "/filtering";
+  static const kProfileView = "/profile";
   static GoRouter router = GoRouter(
     routes: [
       GoRoute(path: kMainView, builder: (context, state) => const MainView()),
@@ -39,6 +41,10 @@ abstract class AppRouter {
           ],
           child: const FilteringView(),
         ),
+      ),
+      GoRoute(
+        path: kProfileView,
+        builder: (context, state) => const ProfileView(),
       ),
     ],
   );

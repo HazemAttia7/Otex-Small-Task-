@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:otex_app/core/utils/app_router.dart';
 import 'package:otex_app/features/main/presentation/views/widgets/custom_bottom_nav_bar.dart';
 import 'package:otex_app/features/main/presentation/views/widgets/main_view_body.dart';
 
@@ -21,6 +23,10 @@ class _MainViewState extends State<MainView> {
         onTap: (index) {
           if (index == 2) {
             // _showAddAdBottomSheet();
+            return;
+          }
+          if (index == 4) {
+            GoRouter.of(context).push(AppRouter.kProfileView);
             return;
           }
           setState(() {
