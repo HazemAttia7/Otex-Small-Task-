@@ -39,7 +39,7 @@ class DatabaseHelper {
 """);
 
     await db.execute("""
-  CREATE TABLE Products (
+    CREATE TABLE Products (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     description TEXT NULL,
@@ -55,7 +55,7 @@ class DatabaseHelper {
 """);
 
     await db.execute("""
-  CREATE TABLE Property_Details (
+    CREATE TABLE Property_Details (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     product_id INTEGER NOT NULL UNIQUE,
     type TEXT NOT NULL,                
@@ -65,6 +65,28 @@ class DatabaseHelper {
     monthly_installment REAL NULL,         
     FOREIGN KEY (product_id) REFERENCES Products (id) ON DELETE CASCADE
   );
+""");
+
+    await db.execute("""
+    CREATE TABLE Plans ( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    price REAL NOT NULL,
+    description TEXT,
+    views_multiplier INTEGER, 
+    duration_days INTEGER     
+  );
+""");
+
+    await db.execute("""
+    CREATE TABLE Plan_Features ( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    plan_id INTEGER NOT NULL,
+    icon_name TEXT,
+    text TEXT NOT NULL, 
+    subtitle TEXT,
+    FOREIGN KEY (plan_id) REFERENCES Plans(id) ON DELETE CASCADE
+    );
 """);
 
     await DatabaseSeeder().seedDatabase(db);

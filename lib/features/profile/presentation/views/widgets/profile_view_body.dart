@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:otex_app/core/utils/constants.dart';
+import 'package:otex_app/features/profile/presentation/views/widgets/plan_card.dart';
 import 'package:otex_app/features/profile/presentation/views/widgets/profile_view_header.dart';
 
 class ProfileViewBody extends StatelessWidget {
@@ -14,7 +15,12 @@ class ProfileViewBody extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: kPageHorizontalPadding),
           child: Column(
-            children: [Gap(25.h), const ProfileViewHeader(), Gap(20.h)],
+            children: [
+              Gap(25.h),
+              const ProfileViewHeader(),
+              Gap(20.h),
+              const PlanCard(),
+            ],
           ),
         ),
       ),

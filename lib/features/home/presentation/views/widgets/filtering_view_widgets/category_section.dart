@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:otex_app/core/database/models/category_model.dart';
 import 'package:otex_app/core/database/models/sub_category_model.dart';
+import 'package:otex_app/core/widgets/custom_divider.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/category_actions.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/location_actions.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/section_header.dart';
@@ -28,7 +29,7 @@ class CategorySection extends StatelessWidget {
           selectedSubCategory: selectedSubCategory,
         ),
         Gap(28.h),
-        Divider(color: Colors.black.withValues(alpha: .1), thickness: 1.sp),
+        const CustomDivider(),
         if (selectedCategory?.id == 5)
           Column(
             children: [

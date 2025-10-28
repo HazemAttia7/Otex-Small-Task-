@@ -502,6 +502,111 @@ class DatabaseSeeder {
       "property_status": _randomPropertyStatus(),
       "monthly_installment": null,
     });
+
+    // ──────────────── Plan 1: أساسية ────────────────
+    final basicId = await db.insert('Plans', {
+      'name': 'أساسية',
+      'price': 3000.0,
+      'views_multiplier': null,
+      'tag': null,
+      'duration_days': 30,
+    });
+
+    await db.insert('Plan_Features', {
+      'plan_id': basicId,
+      'icon_name': 'hour',
+      'text': 'صلاحية الإعلان 30 يوم',
+    });
+
+    // ──────────────── Plan 2: أكسترا ────────────────
+    final extraId = await db.insert('Plans', {
+      'name': 'أكسترا',
+      'price': 3000.0,
+      'views_multiplier': 7,
+      'tag': null,
+      'duration_days': 30,
+    });
+
+    final extraFeatures = [
+      {'icon_name': 'hour', 'text': 'صلاحية الإعلان 30 يوم'},
+      {'icon_name': 'rocket', 'text': 'رفع لأعلى القائمة كل 3 أيام'},
+      {
+        'icon_name': 'pin',
+        'text': 'تثبيت في مقاول صحي',
+        'subtitle': '(خلال الـ48 ساعة القادمة)',
+      },
+    ];
+
+    for (final feature in extraFeatures) {
+      await db.insert('Plan_Features', {
+        'plan_id': extraId,
+        'icon_name': feature['icon_name'],
+        'text': feature['text'],
+        'subtitle': feature['subtitle'],
+      });
+    }
+
+    // ──────────────── Plan 3: بلس ────────────────
+    final plusId = await db.insert('Plans', {
+      'name': 'بلس',
+      'price': 3000.0,
+      'views_multiplier': 18,
+      'tag': 'أفضل قيمة مقابل سعر',
+      'duration_days': 30,
+    });
+
+    final plusFeatures = [
+      {'icon_name': 'hour', 'text': 'صلاحية الإعلان 30 يوم'},
+      {'icon_name': 'rocket', 'text': 'رفع لأعلى القائمة كل 2 يوم'},
+      {
+        'icon_name': 'pin',
+        'text': 'تثبيت في مقاول صحي',
+        'subtitle': '(خلال الـ48 ساعة القادمة)',
+      },
+      {'icon_name': 'earth', 'text': 'ظهور في كل محافظات مصر'},
+      {'icon_name': 'award', 'text': 'إعلان مميز'},
+      {'icon_name': 'pin', 'text': 'تثبيت في مقاول صحي في الجهراء'},
+    ];
+
+    for (final feature in plusFeatures) {
+      await db.insert('Plan_Features', {
+        'plan_id': plusId,
+        'icon_name': feature['icon_name'],
+        'text': feature['text'],
+        'subtitle': feature['subtitle'],
+      });
+    }
+
+    // ──────────────── Plan 4: سوبر ────────────────
+    final superId = await db.insert('Plans', {
+      'name': 'سوبر',
+      'price': 3000.0,
+      'views_multiplier': 24,
+      'tag': 'أعلى مشاهدات',
+      'duration_days': 30,
+    });
+
+    final superFeatures = [
+      {'icon_name': 'hour', 'text': 'صلاحية الإعلان 30 يوم'},
+      {'icon_name': 'rocket', 'text': 'رفع لأعلى القائمة كل 2 يوم'},
+      {
+        'icon_name': 'pin',
+        'text': 'تثبيت في مقاول صحي',
+        'subtitle': '(خلال الـ48 ساعة القادمة)',
+      },
+      {'icon_name': 'earth', 'text': 'ظهور في كل محافظات مصر'},
+      {'icon_name': 'award', 'text': 'إعلان مميز'},
+      {'icon_name': 'pin', 'text': 'تثبيت في مقاول صحي في الجهراء'},
+    ];
+
+    for (final feature in superFeatures) {
+      await db.insert('Plan_Features', {
+        'plan_id': superId,
+        'icon_name': feature['icon_name'],
+        'text': feature['text'],
+        'subtitle': feature['subtitle'],
+      });
+    }
   }
 
   final _rnd = Random();
@@ -521,7 +626,7 @@ class DatabaseSeeder {
         : jsonEncode([methods[_rnd.nextInt(methods.length)]]);
   }
 
-  int _randomRooms() => 3 + _rnd.nextInt(4); 
+  int _randomRooms() => 3 + _rnd.nextInt(4);
 
   String _randomLocation() {
     return [
