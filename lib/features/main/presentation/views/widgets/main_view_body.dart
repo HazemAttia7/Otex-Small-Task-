@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:otex_app/features/home/presentation/views/home_view.dart';
-import 'package:otex_app/features/profile/presentation/views/profile_view.dart';
 
 class MainViewBody extends StatelessWidget {
   const MainViewBody({super.key, required int currentIndex})
@@ -17,7 +16,7 @@ class MainViewBody extends StatelessWidget {
         Center(child: Text('محادثة')),
         Center(child: Text('أضف إعلان')),
         Center(child: Text('إعلاناتي')),
-        ProfileView(),
+        Center(child: Text('حسابي')),
       ],
     );
   }
