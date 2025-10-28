@@ -42,22 +42,21 @@ class OtexApp extends StatelessWidget {
                   ProductsCubit(HomeRepoImpl())..fetchAllProducts(),
             ),
           ],
-          child: MaterialApp.router(
-            locale: const Locale('ar'),
-            supportedLocales: const [Locale('ar'), Locale('en')],
-            localizationsDelegates: const [
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            routerConfig: AppRouter.router,
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData.light().copyWith(
-              scaffoldBackgroundColor: AppColors.back,
-              textTheme: GoogleFonts.tajawalTextTheme(),
-            ),
+         child : MaterialApp.router(
+          routerConfig: AppRouter.router,
+          locale: const Locale('ar'),
+          supportedLocales: const [Locale('ar'), Locale('en')],
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData.light().copyWith(
+            scaffoldBackgroundColor: AppColors.back,
+            textTheme: GoogleFonts.tajawalTextTheme(),
           ),
-        );
+        ));
       },
     );
   }

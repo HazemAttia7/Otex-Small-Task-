@@ -6,10 +6,8 @@ import 'package:go_router/go_router.dart';
 import 'package:otex_app/core/database/models/category_model.dart';
 import 'package:otex_app/core/database/models/sub_category_model.dart';
 import 'package:otex_app/core/widgets/custom_button.dart';
-import 'package:otex_app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/filtering_cubit/filtering_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/products_cubit/products_cubit.dart';
-import 'package:otex_app/features/home/presentation/manager/sub_categories_cubit/sub_categories_cubit.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/category_section.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/filtering_view_header.dart';
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/monthly_installments_section.dart';
@@ -20,7 +18,13 @@ import 'package:otex_app/features/home/presentation/views/widgets/filtering_view
 import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/property_type_section.dart';
 
 class FilteringViewBody extends StatefulWidget {
-  const FilteringViewBody({super.key});
+  final Category? selectedCategory;
+  final SubCategory? selectedSubCategory;
+  const FilteringViewBody({
+    super.key,
+    required this.selectedCategory,
+    required this.selectedSubCategory,
+  });
 
   @override
   State<FilteringViewBody> createState() => _FilteringViewBodyState();
@@ -41,8 +45,6 @@ class _FilteringViewBodyState extends State<FilteringViewBody> {
     super.dispose();
   }
 
-  Category? selectedCategory;
-  SubCategory? selectedSubCategory;
   String? minInstallmentValue,
       minProductPrice,
       maxInstallmentValue,
@@ -54,8 +56,6 @@ class _FilteringViewBodyState extends State<FilteringViewBody> {
 
   void updateFilteredCount() async {
     await BlocProvider.of<FilteringCubit>(context).fetchFilteredProductsCount(
-      selectedCategoryId: selectedCategory?.id,
-      selectedSubCategoryId: selectedSubCategory?.id,
       minProductPrice: minProductPrice,
       maxProductPrice: maxProductPrice,
       minInstallmentValue: minInstallmentValue,
@@ -69,12 +69,6 @@ class _FilteringViewBodyState extends State<FilteringViewBody> {
 
   @override
   void initState() {
-    selectedCategory = BlocProvider.of<CategoriesCubit>(
-      context,
-    ).selectedCategory;
-    selectedSubCategory = BlocProvider.of<SubCategoriesCubit>(
-      context,
-    ).selectedSubCategory;
     super.initState();
   }
 
@@ -117,10 +111,10 @@ class _FilteringViewBodyState extends State<FilteringViewBody> {
             ),
             Gap(32.h),
             CategorySection(
-              selectedCategory: selectedCategory,
-              selectedSubCategory: selectedSubCategory,
+              selectedCategory: widget.selectedCategory,
+              selectedSubCategory: widget.selectedSubCategory,
             ),
-            if (selectedCategory?.id == 5)
+            if (widget.selectedCategory?.id == 5)
               Padding(
                 padding: EdgeInsets.only(top: 20.h),
                 child: MonthlyInstallmentsSection(
@@ -140,7 +134,7 @@ class _FilteringViewBodyState extends State<FilteringViewBody> {
                   },
                 ),
               ),
-            if (selectedCategory?.id == 5)
+            if (widget.selectedCategory?.id == 5)
               Padding(
                 padding: EdgeInsets.only(top: 20.h),
                 child: PropertyTypeSection(
@@ -153,7 +147,7 @@ class _FilteringViewBodyState extends State<FilteringViewBody> {
                   },
                 ),
               ),
-            if (selectedCategory?.id == 5)
+            if (widget.selectedCategory?.id == 5)
               Padding(
                 padding: EdgeInsets.only(top: 20.h),
                 child: PropertyRoomsCountSection(
@@ -196,9 +190,9 @@ class _FilteringViewBodyState extends State<FilteringViewBody> {
                   updateFilteredCount();
                 }
               },
-              selectedCategoryId: selectedCategory?.id ?? -1,
+              selectedCategoryId: widget.selectedCategory?.id ?? -1,
             ),
-            if (selectedCategory?.id == 5)
+            if (widget.selectedCategory?.id == 5)
               Padding(
                 padding: EdgeInsets.only(top: 20.h),
                 child: PropertyStatusSection(
@@ -219,8 +213,8 @@ class _FilteringViewBodyState extends State<FilteringViewBody> {
                 await BlocProvider.of<ProductsCubit>(
                   context,
                 ).fetchFilteredProducts(
-                  selectedCategoryId: selectedCategory?.id,
-                  selectedSubCategoryId: selectedSubCategory?.id,
+                  selectedCategoryId: widget.selectedCategory?.id,
+                  selectedSubCategoryId: widget.selectedSubCategory?.id,
                   minProductPrice: minProductPrice,
                   maxProductPrice: maxProductPrice,
                   minInstallmentValue: minInstallmentValue,
