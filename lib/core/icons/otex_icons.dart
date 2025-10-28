@@ -103,4 +103,6 @@ class OtexIcons {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+    // ignore: constant_identifier_names
+    static const IconData arrow_forward = IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
