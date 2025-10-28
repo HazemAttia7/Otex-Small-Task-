@@ -72,10 +72,10 @@ class DatabaseHelper {
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     price REAL NOT NULL,
-    description TEXT,
+    tag TEXT,
     views_multiplier INTEGER, 
     duration_days INTEGER     
-  );
+);
 """);
 
     await db.execute("""
