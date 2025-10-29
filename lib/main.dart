@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:otex_app/core/database/database_helper.dart';
 import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_router.dart';
+import 'package:otex_app/core/utils/service_locator.dart';
 import 'package:otex_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:otex_app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/products_cubit/products_cubit.dart';
@@ -14,6 +15,7 @@ import 'package:otex_app/features/home/presentation/manager/sub_categories_cubit
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DatabaseHelper.instance.database;
+  setupServiceLocator();
   runApp(const OtexApp());
 }
 
@@ -31,32 +33,35 @@ class OtexApp extends StatelessWidget {
           providers: [
             BlocProvider(
               create: (context) =>
-                  CategoriesCubit(HomeRepoImpl())..fetchAllCategories(),
+                  CategoriesCubit(getIt.get<HomeRepoImpl>())
+                    ..fetchAllCategories(),
             ),
             BlocProvider(
               create: (context) =>
-                  SubCategoriesCubit(HomeRepoImpl())..fetchAllSubcategories(),
+                  SubCategoriesCubit(getIt.get<HomeRepoImpl>())
+                    ..fetchAllSubcategories(),
             ),
             BlocProvider(
               create: (context) =>
-                  ProductsCubit(HomeRepoImpl())..fetchAllProducts(),
+                  ProductsCubit(getIt.get<HomeRepoImpl>())..fetchAllProducts(),
             ),
           ],
-         child : MaterialApp.router(
-          routerConfig: AppRouter.router,
-          locale: const Locale('ar'),
-          supportedLocales: const [Locale('ar'), Locale('en')],
-          localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData.light().copyWith(
-            scaffoldBackgroundColor: AppColors.back,
-            textTheme: GoogleFonts.tajawalTextTheme(),
+          child: MaterialApp.router(
+            routerConfig: AppRouter.router,
+            locale: const Locale('ar'),
+            supportedLocales: const [Locale('ar'), Locale('en')],
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData.light().copyWith(
+              scaffoldBackgroundColor: AppColors.back,
+              textTheme: GoogleFonts.tajawalTextTheme(),
+            ),
           ),
-        ));
+        );
       },
     );
   }

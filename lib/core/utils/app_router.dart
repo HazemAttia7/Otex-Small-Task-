@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:otex_app/core/utils/service_locator.dart';
 import 'package:otex_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:otex_app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/filtering_cubit/filtering_cubit.dart';
@@ -25,18 +26,19 @@ abstract class AppRouter {
           providers: [
             BlocProvider(
               create: (_) =>
-                  PropertyDetailsCubit(HomeRepoImpl())..fetchAllPropertyTypes(),
+                  PropertyDetailsCubit(getIt.get<HomeRepoImpl>())
+                    ..fetchAllPropertyTypes(),
             ),
             BlocProvider(
-              create: (_) =>
-                  FilteringCubit(HomeRepoImpl())..fetchFilteredProductsCount(
-                    selectedCategoryId: BlocProvider.of<CategoriesCubit>(
-                      context,
-                    ).selectedCategory?.id,
-                    selectedSubCategoryId: BlocProvider.of<SubCategoriesCubit>(
-                      context,
-                    ).selectedSubCategory?.id,
-                  ),
+              create: (_) => FilteringCubit(getIt.get<HomeRepoImpl>())
+                ..fetchFilteredProductsCount(
+                  selectedCategoryId: BlocProvider.of<CategoriesCubit>(
+                    context,
+                  ).selectedCategory?.id,
+                  selectedSubCategoryId: BlocProvider.of<SubCategoriesCubit>(
+                    context,
+                  ).selectedSubCategory?.id,
+                ),
             ),
           ],
           child: const FilteringView(),

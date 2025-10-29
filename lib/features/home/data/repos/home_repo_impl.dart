@@ -10,14 +10,20 @@ import 'package:otex_app/features/home/data/repos/home_repo.dart';
 import 'package:sqflite/sqflite.dart';
 
 class HomeRepoImpl implements HomeRepo {
-  final CategoryDao _categoryDao = CategoryDao();
-  final SubCategoryDao _subCategoryDao = SubCategoryDao();
-  final ProductDao _productDao = ProductDao();
+  final CategoryDao categoryDao;
+  final SubCategoryDao subCategoryDao;
+  final ProductDao productDao;
+
+  HomeRepoImpl({
+    required this.categoryDao,
+    required this.subCategoryDao,
+    required this.productDao,
+  });
 
   @override
   Future<Either<Failure, List<Category>>> getAllCategories() async {
     try {
-      final categoriesFromDb = await _categoryDao.getAllCategories();
+      final categoriesFromDb = await categoryDao.getAllCategories();
       return right([Category(id: 0, name: "كل العروض"), ...categoriesFromDb]);
     } on Exception catch (e) {
       if (e is DatabaseException) {
@@ -30,7 +36,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<Product>>> getAllProducts() async {
     try {
-      return right(await _productDao.getAllProducts());
+      return right(await productDao.getAllProducts());
     } on Exception catch (e) {
       if (e is DatabaseException) {
         return left(DatabaseFailure.fromDatabaseException(e));
@@ -42,7 +48,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<SubCategory>>> getAllSubCategories() async {
     try {
-      return right(await _subCategoryDao.getAllSubCategories());
+      return right(await subCategoryDao.getAllSubCategories());
     } on Exception catch (e) {
       if (e is DatabaseException) {
         return left(DatabaseFailure.fromDatabaseException(e));
@@ -57,7 +63,7 @@ class HomeRepoImpl implements HomeRepo {
   }) async {
     try {
       return right(
-        await _productDao.getProductsByCategory(categoryId: categoryId),
+        await productDao.getProductsByCategory(categoryId: categoryId),
       );
     } on Exception catch (e) {
       if (e is DatabaseException) {
@@ -73,9 +79,7 @@ class HomeRepoImpl implements HomeRepo {
   }) async {
     try {
       return right(
-        await _productDao.getProductsBySubCategory(
-          subCategoryId: subCategoryId,
-        ),
+        await productDao.getProductsBySubCategory(subCategoryId: subCategoryId),
       );
     } on Exception catch (e) {
       if (e is DatabaseException) {
@@ -91,9 +95,7 @@ class HomeRepoImpl implements HomeRepo {
   }) async {
     try {
       return right(
-        await _subCategoryDao.getSubCategoriesByCategory(
-          categoryId: categoryId,
-        ),
+        await subCategoryDao.getSubCategoriesByCategory(categoryId: categoryId),
       );
     } on Exception catch (e) {
       if (e is DatabaseException) {
@@ -106,7 +108,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<String>>> getAllPropertyTypes() async {
     try {
-      return right(await _productDao.getAllPropertyTypes());
+      return right(await productDao.getAllPropertyTypes());
     } on Exception catch (e) {
       if (e is DatabaseException) {
         return left(DatabaseFailure.fromDatabaseException(e));
@@ -117,7 +119,7 @@ class HomeRepoImpl implements HomeRepo {
 
   @override
   Future<Either<Failure, List<Product>>> getFilteredProducts({
-      int? selectedCategoryId,
+    int? selectedCategoryId,
     int? selectedSubCategoryId,
     String? minProductPrice,
     String? maxProductPrice,
@@ -129,8 +131,9 @@ class HomeRepoImpl implements HomeRepo {
     String? propertyStatus,
   }) async {
     try {
-      return right(await _productDao.getFilteredProducts(
-         selectedCategoryId: selectedCategoryId,
+      return right(
+        await productDao.getFilteredProducts(
+          selectedCategoryId: selectedCategoryId,
           selectedSubCategoryId: selectedSubCategoryId,
           minProductPrice: minProductPrice,
           maxProductPrice: maxProductPrice,
@@ -140,7 +143,8 @@ class HomeRepoImpl implements HomeRepo {
           propertyRoomsCount: propertyRoomsCount,
           paymentMethod: paymentMethod,
           propertyStatus: propertyStatus,
-      ));
+        ),
+      );
     } on Exception catch (e) {
       if (e is DatabaseException) {
         return left(DatabaseFailure.fromDatabaseException(e));
@@ -164,7 +168,7 @@ class HomeRepoImpl implements HomeRepo {
   }) async {
     try {
       return right(
-        await _productDao.getFilteredProductsCount(
+        await productDao.getFilteredProductsCount(
           selectedCategoryId: selectedCategoryId,
           selectedSubCategoryId: selectedSubCategoryId,
           minProductPrice: minProductPrice,
