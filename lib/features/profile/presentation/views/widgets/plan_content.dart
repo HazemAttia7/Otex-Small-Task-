@@ -14,6 +14,7 @@ class PlanContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // TODO: Start displaying data (profile repo and cubit)
         PlanTitlePriceRow(value: value, onChanged: onChanged),
         Gap(12.h),
         const CustomDivider(),
