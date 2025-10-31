@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
+import 'package:otex_app/core/utils/methods.dart';
 import 'package:otex_app/features/profile/presentation/views/widgets/custom_check_box.dart';
 
 class PlanTitlePriceRow extends StatelessWidget {
@@ -9,10 +10,14 @@ class PlanTitlePriceRow extends StatelessWidget {
     super.key,
     required this.value,
     required this.onChanged,
+    required this.name,
+    required this.price,
   });
 
   final bool value;
   final Function(bool? value) onChanged;
+  final String name;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +26,14 @@ class PlanTitlePriceRow extends StatelessWidget {
         CustomCheckbox(
           value: value,
           onChanged: onChanged,
-          text: 'أساسية',
+          text: name,
           baseColor: Colors.black,
           themeColor: AppColors.primaryDark,
           crossAxisAlignment: CrossAxisAlignment.start,
         ),
         const Spacer(),
         Text(
-          "3,000ج.م",
+          formatPrice(price),
           style: AppStyles.textStyle16Bold.copyWith(
             color: AppColors.secondaryDark,
             decoration: TextDecoration.underline,

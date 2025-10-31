@@ -5,7 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:otex_app/core/database/models/category_model.dart';
 import 'package:otex_app/core/database/models/sub_category_model.dart';
-import 'package:otex_app/core/widgets/custom_button.dart';
+import 'package:otex_app/features/home/presentation/views/widgets/filtering_view_widgets/filtering_button.dart';
 import 'package:otex_app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/filtering_cubit/filtering_cubit.dart';
 import 'package:otex_app/features/home/presentation/manager/products_cubit/products_cubit.dart';
@@ -214,7 +214,7 @@ class _FilteringViewBodyState extends State<FilteringViewBody> {
                 ),
               ),
             Gap(78.h),
-            CustomButton(
+            FilteringButton(
               onTap: () async {
                 await BlocProvider.of<ProductsCubit>(
                   context,

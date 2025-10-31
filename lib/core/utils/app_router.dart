@@ -9,6 +9,8 @@ import 'package:otex_app/features/home/presentation/manager/sub_categories_cubit
 import 'package:otex_app/features/home/presentation/views/filtering_view.dart';
 import 'package:otex_app/features/home/presentation/views/home_view.dart';
 import 'package:otex_app/features/main/presentation/views/main_view.dart';
+import 'package:otex_app/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:otex_app/features/profile/presentation/manager/plan_cubit/plan_cubit.dart';
 import 'package:otex_app/features/profile/presentation/views/profile_view.dart';
 
 abstract class AppRouter {
@@ -46,7 +48,11 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kProfileView,
-        builder: (context, state) => const ProfileView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) =>
+              PlanCubit(getIt.get<ProfileRepoImpl>())..getAllPlans(),
+          child: const ProfileView(),
+        ),
       ),
     ],
   );

@@ -8,9 +8,9 @@ import 'package:otex_app/core/widgets/custom_error_widget.dart';
 import 'package:otex_app/core/widgets/custom_loading_indicator.dart';
 import 'package:otex_app/features/home/presentation/manager/filtering_cubit/filtering_cubit.dart';
 
-class CustomButton extends StatelessWidget {
+class FilteringButton extends StatelessWidget {
   final VoidCallback onTap;
-  const CustomButton({super.key, required this.onTap});
+  const FilteringButton({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

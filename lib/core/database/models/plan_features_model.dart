@@ -1,20 +1,20 @@
-class PlanFeatures {
+class PlanFeature {
   final int? id;
   final int planId;
   final String? iconName;
   final String? subtitle;
   final String text;
 
-  PlanFeatures({
-    this.id,
+  PlanFeature({
+    required this.id,
     required this.planId,
-    this.iconName,
-    this.subtitle,
+    required this.iconName,
+    required this.subtitle,
     required this.text,
   });
 
-  factory PlanFeatures.fromMap(Map<String, dynamic> map) {
-    return PlanFeatures(
+  factory PlanFeature.fromMap(Map<String, dynamic> map) {
+    return PlanFeature(
       id: map['id'] as int?,
       planId: map['plan_id'] as int,
       iconName: map['icon_name'] as String?,

@@ -5,26 +5,31 @@ class Plan {
   final String name;
   final double price;
   final String? tag;
-  final List<PlanFeatures> planFeatures;
+  final int? viewsMultiplier, durationDays;
+  final List<PlanFeature> features;
 
   Plan({
-    this.id,
+    required this.id,
     required this.name,
     required this.price,
-    this.tag,
-    this.planFeatures = const [],
+    required this.tag,
+    required this.viewsMultiplier,
+    required this.durationDays,
+    this.features = const [],
   });
 
   factory Plan.fromMap(
     Map<String, dynamic> map, {
-    List<PlanFeatures> features = const [],
+    List<PlanFeature> features = const [],
   }) {
     return Plan(
       id: map['id'] as int?,
       name: map['name'] as String,
       price: (map['price'] as num).toDouble(),
       tag: map['tag'] as String?,
-      planFeatures: features,
+      viewsMultiplier: map['views_multiplier'] as int?,
+      durationDays: map['duration_days'] as int?,
+      features: features,
     );
   }
 

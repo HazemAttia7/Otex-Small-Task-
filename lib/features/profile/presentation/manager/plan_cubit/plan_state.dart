@@ -13,7 +13,7 @@ final class PlanFailure extends PlanState {
 }
 
 final class PlanSuccess extends PlanState {
-  final List<Plan> plan;
+  final List<Plan> plans;
 
-  PlanSuccess({required this.plan});
+  PlanSuccess({required this.plans});
 }

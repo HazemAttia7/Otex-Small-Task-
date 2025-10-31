@@ -10,7 +10,7 @@ class PlanDao {
     return planMaps.map((planMap) {
       final relatedFeatures = featureMaps
           .where((feature) => feature['plan_id'] == planMap['id'])
-          .map((feature) => PlanFeatures.fromMap(feature))
+          .map((feature) => PlanFeature.fromMap(feature))
           .toList();
 
       return Plan.fromMap(planMap, features: relatedFeatures);
@@ -34,7 +34,7 @@ class PlanDao {
     return (plan.isNotEmpty && feature.isNotEmpty)
         ? Plan.fromMap(
             plan.first,
-            features: [PlanFeatures.fromMap(feature.first)],
+            features: [PlanFeature.fromMap(feature.first)],
           )
         : null;
   }

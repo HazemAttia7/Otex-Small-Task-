@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
 
 class ViewsMultiplierWidget extends StatelessWidget {
-  const ViewsMultiplierWidget({super.key});
+  final int viewsMultiplier;
+  const ViewsMultiplierWidget({super.key, required this.viewsMultiplier});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class ViewsMultiplierWidget extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              "24",
+              viewsMultiplier.toString(),
               style: AppStyles.textStyle14.copyWith(
                 fontWeight: FontWeight.bold,
                 color: const Color(0xFF2E7D32),

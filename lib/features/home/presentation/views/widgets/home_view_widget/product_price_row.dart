@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:otex_app/core/database/models/product_model.dart';
 import 'package:otex_app/core/utils/app_colors.dart';
 import 'package:otex_app/core/utils/app_styles.dart';
+import 'package:otex_app/core/utils/methods.dart';
 
 class ProductPriceRow extends StatelessWidget {
   final Product product;
@@ -19,7 +20,7 @@ class ProductPriceRow extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: "${product.getPriceAfterDiscount()}جم",
+                  text: formatPrice(product.getPriceAfterDiscount()),
                   style: AppStyles.textStyle14.copyWith(
                     color: AppColors.secondaryDark,
                   ),
