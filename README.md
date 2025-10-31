@@ -56,11 +56,23 @@ lib/
 
 ---
 
-## 📸 Screenshots
+## 📱 Screenshots
 
-![Home Screen](screenshots/home%201.png)
-![Home Screen](screenshots/home%202.png)
-![Filter Screen](screenshots/filter%201.png)
-![Filter Screen](screenshots/filter%202.png)
-![Profile Plans Screen](screenshots/profile%201.png)
-![Profile Plans Screen](screenshots/profile%202.png)
+<p align="center">
+  <img src="screenshots/home%202.png" width="300"/>
+  <img src="screenshots/home%201.png" width="300"/>
+</p>
+
+</br>
+
+<p align="center">
+  <img src="screenshots/filter%202.png" width="300"/>
+  <img src="screenshots/filter%201.png" width="300"/>
+</p>
+
+</br>
+
+<p align="center">
+  <img src="screenshots/profile%202.png" width="300"/>
+  <img src="screenshots/profile%201.png" width="300"/>
+</p>
